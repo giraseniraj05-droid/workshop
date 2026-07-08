@@ -1,0 +1,188 @@
+<?php
+
+return [
+    'app_name' => 'REAHAN ALFRAH',
+    'app_admin_name' => 'REAHAN ALFRAH ADMIN',
+    
+    // Auth & Header
+    'dashboard' => 'Dashboard',
+    'login' => 'Log in',
+    'register' => 'Register',
+    'logout' => 'Log Out',
+    'view_site' => 'View Website',
+    'back_to_services' => 'Back to Services',
+    'back_to_dashboard' => 'Back to Dashboard',
+    
+    // Welcome / Homepage
+    'hero_badge' => '⚡ Professional Home Services',
+    'hero_title' => 'Reliable home services, at your doorstep.',
+    'hero_subtitle' => 'Book certified, background-verified professionals for cleaning, plumbing, carpentry, painting, and more.',
+    'browse_services_btn' => 'Browse Services',
+    'our_services' => 'Our Available Services',
+    'services_subtitle' => 'Explore our wide range of services. Select a service to see details, assign professionals, or book online.',
+    'starting_from' => 'Starting from',
+    'view_details' => 'View Details',
+    'no_services' => 'No services are currently available. Check back soon!',
+    
+    // Service Details
+    'category' => 'Service Category',
+    'assigned_specialists' => 'Assigned Specialists',
+    'years_experience' => ':count Years Experience',
+    'no_specialists' => 'No specialists currently assigned to this service.',
+    'book_now_tab' => 'Book Now',
+    'enquire_tab' => 'Enquire',
+    
+    // Booking Form
+    'pref_date' => 'Preferred Date',
+    'pref_time' => 'Preferred Time Slot',
+    'choose_professional' => 'Choose Professional (Optional)',
+    'any_specialist' => 'Any Available Specialist',
+    'service_address' => 'Service Address',
+    'special_instructions' => 'Special Instructions (Optional)',
+    'request_booking' => 'Request Booking',
+    'booking_note' => 'Note: Booking requires manual review and offline payment (UPI/Cash) on completion.',
+    'login_required_title' => 'Login Required to Book',
+    'login_required_desc' => 'You must have an account to submit booking requests and trace their verification status.',
+    'login_to_book_btn' => 'Log in to Book',
+    'create_account_btn' => 'Create Account',
+    
+    // Enquiry Form
+    'full_name' => 'Full Name',
+    'email' => 'Email Address',
+    'phone' => 'Phone Number',
+    'enquiry_msg' => 'Enquiry Message',
+    'submit_enquiry' => 'Submit Enquiry',
+    
+    // Customer Dashboard
+    'customer_dashboard' => 'Customer Dashboard',
+    'welcome_back' => 'Welcome back, :name!',
+    'dashboard_desc' => 'Need another service? Browse our active list of certified professionals and book in seconds.',
+    'book_new_service' => 'Book a New Service',
+    'booking_history' => 'My Booking History',
+    'no_bookings' => 'You have not submitted any bookings yet.',
+    'book_first_service' => 'Book First Service',
+    'assigned_specialist_lbl' => 'Assigned Specialist',
+    'awaiting_assignment' => 'Awaiting Assignment',
+    
+    // Worker Portal
+    'worker_portal' => 'Worker Portal',
+    'edit_profile' => 'Edit Profile',
+    'worker_welcome' => 'Hello, :name!',
+    'worker_desc' => 'Here you can manage your work schedule, view assigned services, update your professional biography, and trace job bookings.',
+    'my_services' => 'My Services',
+    'assigned_services_desc' => 'You are currently assigned to perform the following service categories:',
+    'no_assigned_services' => 'No services assigned yet. Please contact an admin.',
+    'my_bookings' => 'My Assigned Bookings',
+    'no_assigned_bookings' => 'No assigned job bookings at the moment.',
+    
+    // Admin Dashboard
+    'admin_dashboard' => 'Admin Dashboard',
+    'admin_control_panel' => 'Admin Control Panel',
+    'total_services' => 'Services',
+    'total_workers' => 'Workers',
+    'total_customers' => 'Customers',
+    'pending_jobs' => 'Pending Jobs',
+    'open_queries' => 'Open Queries',
+    'recent_worker_assignments' => 'Recent Worker Service Assignments',
+    'assignment_log_history' => 'Full Assignment Log History',
+
+    // Card & Metadata Labels (Dynamic fields)
+    'experience_label' => 'Experience:',
+    'phone_label' => 'Phone:',
+    'email_label' => 'Email:',
+    'address_label' => 'Address:',
+    'skills_label' => 'Skills:',
+    'assigned_services_label' => 'Assigned Services:',
+    'social_profiles_label' => 'Social Profiles:',
+    'customer_label' => 'Customer:',
+    'date_label' => 'Date:',
+    'slot_label' => 'Slot:',
+    'notes_label' => 'Notes:',
+    'unassigned_label' => 'Unassigned',
+    'status_label' => 'Status:',
+
+    // Status Badges & Select Dropdown Values
+    'slot_morning' => 'Morning (09:00 AM - 11:00 AM)',
+    'slot_late_morning' => 'Late Morning (11:00 AM - 01:00 PM)',
+    'slot_afternoon' => 'Afternoon (02:00 PM - 04:00 PM)',
+    'slot_evening' => 'Evening (04:00 PM - 06:00 PM)',
+    'pending' => 'Pending',
+    'accepted' => 'Accepted',
+    'rejected' => 'Rejected',
+    'completed' => 'Completed',
+    'cancelled' => 'Cancelled',
+    'active' => 'Active',
+    'inactive' => 'Inactive',
+    'open' => 'Open',
+    'resolved' => 'Resolved',
+
+    // JS translations (window.translations)
+    'loading' => 'Loading...',
+    'submitted' => 'Submitted!',
+    'saved' => 'Saved',
+    'confirm_delete' => 'Are you sure you want to delete this item?',
+
+    // Redirect / Flash Session Messages
+    'booking_success' => 'Booking created successfully.',
+    'enquiry_success' => 'Enquiry submitted successfully.',
+    'service_create_success' => 'Service created successfully.',
+    'service_update_success' => 'Service updated successfully.',
+    'service_delete_success' => 'Service deleted successfully.',
+    'worker_create_success' => 'Worker account created successfully.',
+    'worker_update_success' => 'Worker profile updated successfully.',
+    'worker_delete_success' => 'Worker account deleted successfully.',
+    'worker_assign_success' => 'Service category assigned to worker successfully.',
+    'worker_remove_success' => 'Service category assignment removed from worker.',
+    'booking_update_success' => 'Booking updated successfully.',
+    'enquiry_reply_success' => 'Enquiry reply submitted successfully and marked as resolved.',
+    'admin_create_success' => 'Administrator account created successfully.',
+    'admin_update_success' => 'Administrator account updated successfully.',
+    'admin_delete_success' => 'Administrator account deleted successfully.',
+    'admin_delete_self_error' => 'You cannot delete your own account.',
+
+    // Email Notifications Translation strings
+    'email_greeting' => 'Hello :name,',
+    'email_support' => 'If you have any questions, please contact our support team.',
+    'email_view_bookings' => 'View My Bookings',
+    
+    // 1. New Booking Notification (to Admin)
+    'email_new_booking_subject' => 'New Booking Request Submitted',
+    'email_new_booking_line1' => 'A new booking request has been submitted for **:service**.',
+    'email_new_booking_line2' => 'Please log in to the admin panel to assign a specialist and review details.',
+
+    // 2. Booking Status Changed (to Customer)
+    'email_status_changed_subject' => 'Booking Status Update: :status',
+    'email_status_changed_line1' => 'There has been an update regarding your booking request.',
+    'email_status_changed_accepted' => 'Your booking for **:service** has been **Accepted**!',
+    'email_status_changed_assigned' => 'Specialist **:worker** has been assigned to help you.',
+    'email_status_changed_rejected' => 'We regret to inform you that your booking for **:service** has been **Rejected**.',
+    'email_status_changed_completed' => 'Your service for **:service** is marked as **Completed**. Thank you for choosing us!',
+    'email_status_changed_cancelled' => 'Your booking for **:service** has been **Cancelled**.',
+    'email_status_changed_generic' => 'Your booking status is now: **:status**.',
+    'email_status_details' => 'Booking Details:',
+
+    // 3. Worker Assigned to Booking (to Worker)
+    'email_worker_assigned_subject' => 'New Job Assigned: :service',
+    'email_worker_assigned_line1' => 'You have been assigned to a new booking request.',
+    'email_worker_assigned_details' => 'Job Details:',
+
+    // Administrative & Filter UI keys
+    'all_statuses' => 'All Statuses',
+    'all_services' => 'All Services',
+    'all_queries' => 'All Queries',
+    'filter_status' => 'Filter Status',
+    'start_date_label' => 'Start Date',
+    'end_date_label' => 'End Date',
+    'clear_filters' => 'Clear Filters',
+    'apply_filters' => 'Apply Filters',
+    'column_service' => 'Service Category',
+    'column_customer' => 'Customer',
+    'column_date' => 'Date / Slot',
+    'column_worker' => 'Assigned Specialist',
+    'column_status' => 'Status',
+    'column_actions' => 'Actions',
+    'manage_booking' => 'Manage Booking',
+    'assigned_by' => 'Assigned By',
+    'date_assigned' => 'Date Assigned',
+    'no_recent_worker_assignments' => 'No recent worker assignments found.',
+];

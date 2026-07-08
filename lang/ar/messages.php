@@ -1,0 +1,188 @@
+<?php
+
+return [
+    'app_name' => 'ريحان الأفراح',
+    'app_admin_name' => 'لوحة إدارة ريحان الأفراح',
+    
+    // Auth & Header
+    'dashboard' => 'لوحة التحكم',
+    'login' => 'تسجيل الدخول',
+    'register' => 'تسجيل جديد',
+    'logout' => 'تسجيل الخروج',
+    'view_site' => 'عرض الموقع',
+    'back_to_services' => 'العودة إلى الخدمات',
+    'back_to_dashboard' => 'العودة إلى لوحة التحكم',
+    
+    // Welcome / Homepage
+    'hero_badge' => '⚡ خدمات منزلية احترافية',
+    'hero_title' => 'خدمات منزلية موثوقة، مباشرة عند عتبة بابك.',
+    'hero_subtitle' => 'احجز متخصصين معتمدين وذوي خبرة للتنظيف والسباكة والنجارة والطلاء وأكثر من ذلك.',
+    'browse_services_btn' => 'تصفح خدماتنا',
+    'our_services' => 'خدماتنا المتاحة',
+    'services_subtitle' => 'استكشف مجموعتنا الواسعة من الخدمات المنزلية. اختر الخدمة لعرض التفاصيل والمهنيين المتاحين أو احجز مباشرة.',
+    'starting_from' => 'تبدأ من',
+    'view_details' => 'عرض التفاصيل',
+    'no_services' => 'لا توجد خدمات متاحة حالياً. يرجى مراجعتنا لاحقاً!',
+    
+    // Service Details
+    'category' => 'فئة الخدمة',
+    'assigned_specialists' => 'المتخصصون المعينون للخدمة',
+    'years_experience' => 'خبرة :count سنوات',
+    'no_specialists' => 'لا يوجد مهنيين معينين لهذه الخدمة حالياً.',
+    'book_now_tab' => 'احجز الآن',
+    'enquire_tab' => 'استفسار',
+    
+    // Booking Form
+    'pref_date' => 'التاريخ المفضل',
+    'pref_time' => 'الفترة الزمنية المفضلة',
+    'choose_professional' => 'اختر المتخصص (اختياري)',
+    'any_specialist' => 'أي متخصص متاح',
+    'service_address' => 'عنوان الخدمة بالتفصيل',
+    'special_instructions' => 'تعليمات خاصة (اختياري)',
+    'request_booking' => 'تأكيد طلب الحجز',
+    'booking_note' => 'ملاحظة: يتطلب الحجز مراجعة المسؤول، ويتم الدفع نقداً أو عبر الهاتف بعد إتمام الخدمة.',
+    'login_required_title' => 'تسجيل الدخول مطلوب لإجراء الحجز',
+    'login_required_desc' => 'يجب أن يكون لديك حساب لتقديم طلبات الحجز وتتبع حالة تأكيدها.',
+    'login_to_book_btn' => 'سجل دخولك للحجز',
+    'create_account_btn' => 'إنشاء حساب جديد',
+    
+    // Enquiry Form
+    'full_name' => 'الاسم الكامل',
+    'email' => 'البريد الإلكتروني',
+    'phone' => 'رقم الهاتف',
+    'enquiry_msg' => 'تفاصيل الاستفسار',
+    'submit_enquiry' => 'إرسال الاستفسار',
+    
+    // Customer Dashboard
+    'customer_dashboard' => 'لوحة تحكم العميل',
+    'welcome_back' => 'مرحباً بك مجدداً، :name!',
+    'dashboard_desc' => 'هل تحتاج خدمة أخرى؟ تصفح قائمتنا للخدمات والمهنيين المتاحين واحجز في ثوانٍ.',
+    'book_new_service' => 'حجز خدمة جديدة',
+    'booking_history' => 'سجل حجوزاتي',
+    'no_bookings' => 'لم تقم بتقديم أي طلبات حجز بعد.',
+    'book_first_service' => 'احجز أول خدمة لك',
+    'assigned_specialist_lbl' => 'المتخصص المعين',
+    'awaiting_assignment' => 'بانتظار تعيين متخصص',
+    
+    // Worker Portal
+    'worker_portal' => 'بوابة الفنيين',
+    'edit_profile' => 'تعديل الملف الشخصي',
+    'worker_welcome' => 'أهلاً بك، :name!',
+    'worker_desc' => 'هنا يمكنك متابعة جدول أعمالك، وعرض الخدمات المعين لها، وتحديث معلوماتك وسيرتك المهنية.',
+    'my_services' => 'خدماتي المعين لها',
+    'assigned_services_desc' => 'أنت معين حالياً لتقديم الفئات والخدمات التالية:',
+    'no_assigned_services' => 'لم يتم تعيينك لأي خدمات بعد. يرجى التواصل مع الإدارة.',
+    'my_bookings' => 'المهام والحجوزات المسندة إلي',
+    'no_assigned_bookings' => 'لا توجد مهام أو حجوزات مسندة إليك في الوقت الحالي.',
+    
+    // Admin Dashboard
+    'admin_dashboard' => 'لوحة تحكم المسؤول',
+    'admin_control_panel' => 'لوحة التحكم الإدارية',
+    'total_services' => 'الخدمات',
+    'total_workers' => 'الفنيين',
+    'total_customers' => 'العملاء',
+    'pending_jobs' => 'المهام المعلقة',
+    'open_queries' => 'الاستفسارات المفتوحة',
+    'recent_worker_assignments' => 'أحدث تعيينات الفنيين للخدمات',
+    'assignment_log_history' => 'السجل الكامل لعمليات التعيين والتعديل',
+
+    // Card & Metadata Labels (Dynamic fields)
+    'experience_label' => 'الخبرة:',
+    'phone_label' => 'الهاتف:',
+    'email_label' => 'البريد الإلكتروني:',
+    'address_label' => 'العنوان:',
+    'skills_label' => 'المهارات:',
+    'assigned_services_label' => 'الخدمات المعين لها:',
+    'social_profiles_label' => 'الحسابات الاجتماعية:',
+    'customer_label' => 'العميل:',
+    'date_label' => 'التاريخ:',
+    'slot_label' => 'الفترة الزمنية:',
+    'notes_label' => 'ملاحظات:',
+    'unassigned_label' => 'غير معين',
+    'status_label' => 'الحالة:',
+
+    // Status Badges & Select Dropdown Values
+    'slot_morning' => 'صباحاً (09:00 AM - 11:00 AM)',
+    'slot_late_morning' => 'ضحى (11:00 AM - 01:00 PM)',
+    'slot_afternoon' => 'بعد الظهر (02:00 PM - 04:00 PM)',
+    'slot_evening' => 'مساءً (04:00 PM - 06:00 PM)',
+    'pending' => 'قيد الانتظار',
+    'accepted' => 'مقبول',
+    'rejected' => 'مرفوض',
+    'completed' => 'مكتمل',
+    'cancelled' => 'ملغى',
+    'active' => 'نشط',
+    'inactive' => 'غير نشط',
+    'open' => 'مفتوح',
+    'resolved' => 'تم الحل',
+
+    // JS translations (window.translations)
+    'loading' => 'جاري التحميل...',
+    'submitted' => 'تم التقديم!',
+    'saved' => 'تم الحفظ',
+    'confirm_delete' => 'هل أنت متأكد أنك تريد حذف هذا العنصر؟',
+
+    // Redirect / Flash Session Messages
+    'booking_success' => 'تم إنشاء الحجز بنجاح.',
+    'enquiry_success' => 'تم تقديم الاستفسار بنجاح.',
+    'service_create_success' => 'تم إنشاء الخدمة بنجاح.',
+    'service_update_success' => 'تم تحديث الخدمة بنجاح.',
+    'service_delete_success' => 'تم حذف الخدمة بنجاح.',
+    'worker_create_success' => 'تم إنشاء حساب الفني بنجاح.',
+    'worker_update_success' => 'تم تحديث ملف الفني بنجاح.',
+    'worker_delete_success' => 'تم حذف حساب الفني بنجاح.',
+    'worker_assign_success' => 'تم تعيين فئة الخدمة للفني بنجاح.',
+    'worker_remove_success' => 'تم إزالة تعيين فئة الخدمة من الفني.',
+    'booking_update_success' => 'تم تحديث الحجز بنجاح.',
+    'enquiry_reply_success' => 'تم تقديم الرد على الاستفسار بنجاح وتم وضع علامة حل.',
+    'admin_create_success' => 'تم إنشاء حساب المسؤول بنجاح.',
+    'admin_update_success' => 'تم تحديث حساب المسؤول بنجاح.',
+    'admin_delete_success' => 'تم حذف حساب المسؤول بنجاح.',
+    'admin_delete_self_error' => 'لا يمكنك حذف حسابك الشخصي.',
+
+    // Email Notifications Translation strings
+    'email_greeting' => 'مرحباً :name،',
+    'email_support' => 'إذا كان لديك أي أسئلة، يرجى الاتصال بفريق الدعم لدينا.',
+    'email_view_bookings' => 'عرض حجوزاتي',
+    
+    // 1. New Booking Notification (to Admin)
+    'email_new_booking_subject' => 'تم تقديم طلب حجز جديد',
+    'email_new_booking_line1' => 'تم تقديم طلب حجز جديد لخدمة **:service**.',
+    'email_new_booking_line2' => 'يرجى تسجيل الدخول إلى لوحة التحكم الإدارية لتعيين فني ومراجعة التفاصيل.',
+
+    // 2. Booking Status Changed (to Customer)
+    'email_status_changed_subject' => 'تحديث حالة الحجز: :status',
+    'email_status_changed_line1' => 'هناك تحديث جديد بخصوص طلب الحجز الخاص بك.',
+    'email_status_changed_accepted' => 'تم **قبول** حجزك لخدمة **:service**!',
+    'email_status_changed_assigned' => 'تم تعيين الفني **:worker** لمساعدتك.',
+    'email_status_changed_rejected' => 'نأسف لإبلاغك بأن حجزك لخدمة **:service** قد تم **رفضه**.',
+    'email_status_changed_completed' => 'تم وضع علامة **مكتمل** على خدمتك لـ **:service**. شكراً لاختيارك لنا!',
+    'email_status_changed_cancelled' => 'تم **إلغاء** حجزك لخدمة **:service**.',
+    'email_status_changed_generic' => 'حالة حجزك الآن هي: **:status**.',
+    'email_status_details' => 'تفاصيل الحجز:',
+
+    // 3. Worker Assigned to Booking (to Worker)
+    'email_worker_assigned_subject' => 'تم إسناد مهمة جديدة: :service',
+    'email_worker_assigned_line1' => 'تم إسناد طلب حجز جديد إليك.',
+    'email_worker_assigned_details' => 'تفاصيل المهمة:',
+
+    // Administrative & Filter UI keys
+    'all_statuses' => 'جميع الحالات',
+    'all_services' => 'جميع الخدمات',
+    'all_queries' => 'جميع الاستفسارات',
+    'filter_status' => 'تصفية حسب الحالة',
+    'start_date_label' => 'تاريخ البدء',
+    'end_date_label' => 'تاريخ الانتهاء',
+    'clear_filters' => 'مسح التصفية',
+    'apply_filters' => 'تطبيق التصفية',
+    'column_service' => 'فئة الخدمة',
+    'column_customer' => 'العميل',
+    'column_date' => 'التاريخ / الوقت',
+    'column_worker' => 'المتخصص المعين',
+    'column_status' => 'الحالة',
+    'column_actions' => 'الإجراءات',
+    'manage_booking' => 'إدارة الحجز',
+    'assigned_by' => 'بواسطة المسؤول',
+    'date_assigned' => 'تاريخ التعيين',
+    'no_recent_worker_assignments' => 'لم يتم العثور على تعيينات فنيين حديثة.',
+];

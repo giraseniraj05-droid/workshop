@@ -1,0 +1,72 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* Brand color tokens - Royal Blue & Gold theme */
+  --primary: #1e40af;           /* Deep Royal Blue */
+  --primary-light: #3b82f6;     /* Medium Blue */
+  --primary-dark: #1e3a8a;      /* Dark Blue */
+  --secondary: #d97706;         /* Luxury Gold */
+  --accent: #4f46e5;            /* Premium Indigo */
+  
+  /* Dynamic Palette derivatives */
+  --primary-lightest: #f0f7ff;
+  --primary-darker: #172554;
+  --primary-darkest: #0f172a;
+  
+  --secondary-lightest: #fffbeb;
+  --secondary-light: #fde68a;
+  --secondary-dark: #b45309;
+  --secondary-darker: #78350f;
+  
+  --accent-dark: #3730a3;
+  --accent-light: #818cf8;
+
+  --background: #f8fafc;
+
+  /* Gradients */
+  --gradient-primary: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+  --gradient-secondary: linear-gradient(135deg, var(--secondary) 0%, var(--secondary-dark) 100%);
+  --gradient-accent: linear-gradient(135deg, var(--accent) 0%, var(--primary-dark) 100%);
+  --background-gradient: linear-gradient(180deg, #f8fafc 0%, #f1f5f9 100%);
+  --hover-gradient: linear-gradient(135deg, var(--primary-dark) 0%, var(--accent-dark) 100%);
+}
+
+/* Base style enhancements */
+body {
+    background-color: var(--background);
+    background-image: var(--background-gradient);
+    min-height: 100vh;
+}
+
+/* Smooth transitions (0.3s - 0.4s) on interactive elements */
+a, button, select, input, textarea, tr, .transition {
+    transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition-duration: 350ms !important;
+}
+
+/* Complementary colored shadows */
+.shadow-sm {
+    box-shadow: 0 1px 2px 0 rgba(30, 64, 175, 0.03) !important;
+}
+.shadow-md {
+    box-shadow: 0 4px 6px -1px rgba(30, 64, 175, 0.05), 0 2px 4px -2px rgba(30, 64, 175, 0.05) !important;
+}
+.shadow-lg {
+    box-shadow: 0 10px 15px -3px rgba(30, 64, 175, 0.08), 0 4px 6px -4px rgba(30, 64, 175, 0.08) !important;
+}
+.shadow-xl {
+    box-shadow: 0 20px 25px -5px rgba(30, 64, 175, 0.1), 0 8px 10px -6px rgba(30, 64, 175, 0.1) !important;
+}
+
+/* Gradient hover utility scale effect */
+button:hover, .btn-hover-effect:hover {
+    transform: translateY(-1px);
+    filter: brightness(1.05);
+}
+
+button:active, .btn-hover-effect:active {
+    transform: translateY(0);
+}
