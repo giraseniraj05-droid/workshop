@@ -16,9 +16,7 @@ return [
 
     'teams' => true,
 
-    'team_resolver' => function () {
-        return null;
-    },
+    'team_resolver' => null,
 
     'strict_team_isolation' => false,
 
