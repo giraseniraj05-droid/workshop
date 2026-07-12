@@ -2,7 +2,7 @@
     
     <div class="mb-8">
         <h2 class="text-3xl font-black text-slate-900 mb-1">{{ __('messages.bookings') }}</h2>
-        <p class="text-slate-500 text-sm font-medium">View, filter, and assign professionals to customer booking requests.</p>
+        <p class="text-slate-500 text-sm font-medium">{{ __('messages.admin_bookings_desc') }}</p>
     </div>
 
     <!-- Filter Card -->
@@ -139,7 +139,7 @@
                     @empty
                         <tr>
                             <td colspan="6" class="py-8 text-center text-slate-400 font-medium">
-                                No booking requests found matching filters.
+                                {{ __('messages.no_bookings_admin') }}
                             </td>
                         </tr>
                     @endforelse

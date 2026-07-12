@@ -37,6 +37,19 @@
                 </div>
 
                 <h3 class="text-xl font-extrabold text-slate-900 mb-1">{{ $worker->name }}</h3>
+                @if($reviewsCount > 0)
+                    <div class="flex items-center justify-center gap-1 mt-1 mb-2 text-amber-400">
+                        @for($i = 1; $i <= 5; $i++)
+                            @if($i <= round($averageRating))
+                                <i class="fa-solid fa-star text-xs"></i>
+                            @else
+                                <i class="fa-regular fa-star text-xs"></i>
+                            @endif
+                        @endfor
+                        <span class="text-slate-800 font-extrabold text-xs ml-1">{{ number_format($averageRating, 1) }}</span>
+                        <span class="text-slate-400 text-[10px]">({{ $reviewsCount }})</span>
+                    </div>
+                @endif
                 <span class="px-3 py-1 bg-blue-50 text-blue-700 border border-blue-100 rounded-full text-[10px] font-bold uppercase tracking-wider mb-4 inline-block">
                     {{ $worker->role }}
                 </span>
@@ -216,6 +229,55 @@
                             @endforelse
                         </tbody>
                     </table>
+                </div>
+            </div>
+
+            <!-- Worker Feedback & Reviews Module -->
+            <div class="bg-white rounded-3xl p-8 border border-slate-100 shadow-sm">
+                <h3 class="text-lg font-bold text-slate-900 mb-6 flex items-center gap-2">
+                    <i class="fa-solid fa-star text-amber-500"></i> Worker Feedback & Reviews
+                    @if($reviewsCount > 0)
+                        <span class="text-slate-400 font-medium text-sm flex-shrink-0">({{ $reviewsCount }})</span>
+                    @endif
+                </h3>
+
+                <div class="space-y-6">
+                    @forelse($reviews as $review)
+                        <div class="bg-slate-50 rounded-2xl p-6 border border-slate-100 flex flex-col gap-3">
+                            <div class="flex items-center justify-between">
+                                <div class="flex items-center gap-3">
+                                    <div class="h-10 w-10 rounded-full bg-blue-50 text-blue-600 flex items-center justify-center font-bold overflow-hidden flex-shrink-0">
+                                        {{ substr($review->customer->name ?? 'User', 0, 2) }}
+                                    </div>
+                                    <div>
+                                        <h4 class="font-bold text-slate-800 text-sm">{{ $review->customer->name ?? 'Deleted User' }}</h4>
+                                        <span class="text-xs text-slate-500">Service: <strong>{{ $review->service->name ?? 'Deleted Service' }}</strong></span>
+                                    </div>
+                                </div>
+                                <div class="flex flex-col items-end gap-1">
+                                    <div class="flex items-center gap-0.5 text-amber-400">
+                                        @for($i = 1; $i <= 5; $i++)
+                                            @if($i <= $review->rating)
+                                                <i class="fa-solid fa-star text-xs"></i>
+                                            @else
+                                                <i class="fa-regular fa-star text-xs"></i>
+                                            @endif
+                                        @endfor
+                                    </div>
+                                    <span class="text-[9px] font-bold text-slate-400 uppercase tracking-wider">
+                                        {{ $review->created_at->format('Y-m-d') }}
+                                    </span>
+                                </div>
+                            </div>
+                            @if($review->comment)
+                                <p class="text-slate-650 text-sm italic bg-white p-3 rounded-xl border border-slate-50">"{{ $review->comment }}"</p>
+                            @endif
+                        </div>
+                    @empty
+                        <div class="text-center py-6 text-slate-400 font-medium italic">
+                            No reviews received for this worker yet.
+                        </div>
+                    @endforelse
                 </div>
             </div>
 

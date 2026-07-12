@@ -76,7 +76,7 @@
 
         <!-- Service Hero Section -->
         <section class="bg-slate-900 text-white py-16 relative overflow-hidden">
-            <div class="absolute inset-0 bg-cover bg-center opacity-30" style="background-image: url('https://images.unsplash.com/photo-1621905251189-08b45d6a269e?auto=format&fit=crop&q=80&w=1200');"></div>
+            <div class="absolute inset-0 bg-cover bg-center opacity-30" style="background-image: url('{{ $service->image ? asset('storage/' . $service->image) : asset('images/service-placeholder.png') }}');"></div>
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
                 <div>
                     <span class="px-3 py-1 bg-teal-500/20 text-teal-400 rounded-full text-xs font-bold uppercase tracking-wider mb-4 inline-block">
@@ -88,9 +88,26 @@
                     <p class="text-slate-300 text-base md:text-lg mb-8 leading-relaxed">
                         {{ $service->description }}
                     </p>
-                    <div class="flex items-center gap-2">
-                        <span class="text-slate-400 text-sm font-semibold">{{ __('messages.starting_from') }}:</span>
-                        <span class="text-2xl font-extrabold text-teal-400">${{ number_format($service->price, 2) }}</span>
+                    <div class="flex items-center gap-6 mt-6 flex-wrap">
+                        <div class="flex items-center gap-2">
+                            <span class="text-slate-400 text-sm font-semibold">{{ __('messages.starting_from') }}:</span>
+                            <span class="text-2xl font-extrabold text-teal-400">${{ number_format($service->price, 2) }}</span>
+                        </div>
+                        @if($reviewsCount > 0)
+                            <div class="flex items-center gap-2 bg-white/15 px-3 py-1.5 rounded-xl backdrop-blur-sm">
+                                <div class="flex items-center gap-0.5 text-amber-400">
+                                    @for($i = 1; $i <= 5; $i++)
+                                        @if($i <= round($averageRating))
+                                            <i class="fa-solid fa-star text-xs"></i>
+                                        @else
+                                            <i class="fa-regular fa-star text-xs"></i>
+                                        @endif
+                                    @endfor
+                                </div>
+                                <span class="text-teal-300 font-extrabold text-sm">{{ number_format($averageRating, 1) }}</span>
+                                <span class="text-slate-400 text-xs">({{ $reviewsCount }} {{ trans_choice('messages.reviews', $reviewsCount) }})</span>
+                            </div>
+                        @endif
                     </div>
                 </div>
             </div>
@@ -177,6 +194,51 @@
                         </div>
                     @endforelse
                 </div>
+
+                <!-- Reviews Section -->
+                <div class="mt-12 pt-12 border-t border-slate-200">
+                    <h2 class="text-2xl font-black text-slate-900 mb-8 flex items-center gap-2">
+                        <i class="fa-solid fa-star text-amber-500"></i> {{ __('messages.reviews') }}
+                        @if($reviewsCount > 0)
+                            <span class="text-slate-400 font-medium text-base">({{ $reviewsCount }})</span>
+                        @endif
+                    </h2>
+
+                    @forelse($reviews as $review)
+                        <div class="bg-white rounded-2xl p-6 border border-slate-100 shadow-sm mb-6 last:mb-0 hover:border-teal-200 transition">
+                            <div class="flex items-center justify-between mb-4">
+                                <div class="flex items-center gap-3">
+                                    <div class="h-10 w-10 rounded-full bg-teal-50 border border-teal-100 flex items-center justify-center text-teal-600 font-bold overflow-hidden shadow-inner flex-shrink-0">
+                                        {{ substr($review->customer->name ?? 'User', 0, 2) }}
+                                    </div>
+                                    <div>
+                                        <h4 class="font-extrabold text-slate-900 text-sm">{{ $review->customer->name ?? 'Deleted User' }}</h4>
+                                        <div class="flex items-center gap-0.5 mt-0.5">
+                                            @for($i = 1; $i <= 5; $i++)
+                                                @if($i <= $review->rating)
+                                                    <i class="fa-solid fa-star text-amber-400 text-xs"></i>
+                                                @else
+                                                    <i class="fa-regular fa-star text-slate-200 text-xs"></i>
+                                                @endif
+                                            @endfor
+                                        </div>
+                                    </div>
+                                </div>
+                                <span class="text-[10px] font-bold text-slate-400 uppercase tracking-wider">
+                                    {{ $review->created_at->translatedFormat('d M Y') }}
+                                </span>
+                            </div>
+                            @if($review->comment)
+                                <p class="text-slate-600 text-sm leading-relaxed italic">"{{ $review->comment }}"</p>
+                            @endif
+                        </div>
+                    @empty
+                        <div class="bg-white p-8 border border-slate-100 rounded-2xl text-center">
+                            <i class="fa-solid fa-comments text-slate-300 text-4xl mb-3 block"></i>
+                            <p class="text-slate-500 font-semibold">{{ __('messages.no_reviews') }}</p>
+                        </div>
+                    @endforelse
+                </div>
             </section>
 
             <!-- Right Side: Forms (Booking & Enquiry) -->
@@ -253,7 +315,7 @@
                                     <!-- Address -->
                                     <div>
                                         <label for="address" class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-2">{{ __('messages.service_address') }}</label>
-                                        <input type="text" name="address" id="address" required placeholder="E.g. Villa 15, Street 2"
+                                                                                <input type="text" name="address" id="address" required placeholder="{{ __('messages.address_placeholder') }}"
                                                class="w-full rounded-xl border-slate-200 focus:border-teal-500 focus:ring focus:ring-teal-200 text-slate-800 font-medium">
                                         @error('address')
                                             <span class="text-xs text-red-600 mt-1 block">{{ $message }}</span>
@@ -302,7 +364,7 @@
                                 <!-- Name -->
                                 <div>
                                     <label for="customer_name" class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-2">{{ __('messages.full_name') }}</label>
-                                    <input type="text" name="customer_name" id="customer_name" required placeholder="E.g., Jane Doe"
+                                                                            <input type="text" name="customer_name" id="customer_name" required placeholder="{{ __('messages.full_name_placeholder') }}"
                                            value="{{ old('customer_name', Auth::user()->name ?? '') }}"
                                            class="w-full rounded-xl border-slate-200 focus:border-teal-500 focus:ring focus:ring-teal-200 text-slate-800 font-medium">
                                     @error('customer_name')
@@ -313,7 +375,7 @@
                                 <!-- Email -->
                                 <div>
                                     <label for="email" class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-2">{{ __('messages.email') }}</label>
-                                    <input type="email" name="email" id="email" required placeholder="E.g., jane@example.com"
+                                                                            <input type="email" name="email" id="email" required placeholder="{{ __('messages.email_placeholder') }}"
                                            value="{{ old('email', Auth::user()->email ?? '') }}"
                                            class="w-full rounded-xl border-slate-200 focus:border-teal-500 focus:ring focus:ring-teal-200 text-slate-800 font-medium">
                                     @error('email')
@@ -324,7 +386,7 @@
                                 <!-- Phone -->
                                 <div>
                                     <label for="phone" class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-2">{{ __('messages.phone') }}</label>
-                                    <input type="text" name="phone" id="phone" required placeholder="E.g., +971 50 123 4567"
+                                                                            <input type="text" name="phone" id="phone" required placeholder="{{ __('messages.phone_placeholder') }}"
                                            value="{{ old('phone', Auth::user()->workerProfile->phone ?? '') }}"
                                            class="w-full rounded-xl border-slate-200 focus:border-teal-500 focus:ring focus:ring-teal-200 text-slate-800 font-medium">
                                     @error('phone')

@@ -7,11 +7,44 @@ use App\Http\Controllers\BookingController;
 use App\Http\Controllers\EnquiryController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\FeedbackController;
 
 // 1. Public Visitor Routes
 Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::get('/services/{slug}', [ServiceController::class, 'show'])->name('services.show');
 Route::post('/services/{id}/enquire', [EnquiryController::class, 'store'])->name('enquiries.store');
+Route::get('/privacy-policy', function () {
+    return view('pages.legal', [
+        'title' => __('Privacy Policy'),
+        'subtitle' => __('How we collect, use, and protect your information.'),
+        'paragraphs' => [
+            __('This is a placeholder privacy policy page for the service marketplace project.'),
+            __('Replace this content with your final legal copy before going live.'),
+        ],
+    ]);
+})->name('privacy.policy');
+
+Route::get('/terms-of-service', function () {
+    return view('pages.legal', [
+        'title' => __('Terms of Service'),
+        'subtitle' => __('The rules and responsibilities for using the platform.'),
+        'paragraphs' => [
+            __('This is a placeholder terms of service page for the service marketplace project.'),
+            __('Replace this content with your final legal copy before going live.'),
+        ],
+    ]);
+})->name('terms.service');
+
+Route::get('/cookie-settings', function () {
+    return view('pages.legal', [
+        'title' => __('Cookie Settings'),
+        'subtitle' => __('Manage how cookies are used to improve your experience.'),
+        'paragraphs' => [
+            __('This is a placeholder cookie settings page for the service marketplace project.'),
+            __('Replace this content with your final cookie and tracking policy before going live.'),
+        ],
+    ]);
+})->name('cookie.settings');
 Route::get('/lang/{locale}', function ($locale) {
     if (in_array($locale, ['en', 'ar'])) {
         session(['locale' => $locale]);
@@ -27,6 +60,9 @@ Route::middleware(['auth'])->group(function () {
     
     // Customer submits a booking request
     Route::post('/services/{id}/book', [BookingController::class, 'store'])->name('bookings.store');
+    
+    // Customer submits feedback/review for a completed booking
+    Route::post('/bookings/{id}/feedback', [FeedbackController::class, 'store'])->name('feedback.store');
     
     // Breeze Profile CRUD
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');

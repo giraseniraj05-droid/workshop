@@ -70,35 +70,35 @@
                     <!-- Service Management -->
                     <a href="{{ route('admin.services.index') }}" 
                        class="{{ request()->routeIs('admin.services.*') ? 'bg-gradient-to-r from-teal-500/10 to-blue-500/10 text-white font-semibold border-l-4 border-teal-500 pl-3' : 'hover:bg-slate-900 hover:text-white pl-4' }} flex items-center gap-3 py-3 rounded-lg text-sm transition">
-                        <i class="fa-solid fa-layer-group text-slate-500"></i> {{ __('Services') }}
+                        <i class="fa-solid fa-layer-group text-slate-500"></i> {{ __('messages.services') }}
                     </a>
 
                     <!-- Worker Management -->
                     <a href="{{ route('admin.workers.index') }}" 
                        class="{{ request()->routeIs('admin.workers.*') ? 'bg-gradient-to-r from-teal-500/10 to-blue-500/10 text-white font-semibold border-l-4 border-teal-500 pl-3' : 'hover:bg-slate-900 hover:text-white pl-4' }} flex items-center gap-3 py-3 rounded-lg text-sm transition">
-                        <i class="fa-solid fa-user-gear text-slate-500"></i> {{ __('Workers') }}
+                        <i class="fa-solid fa-user-gear text-slate-500"></i> {{ __('messages.workers') }}
                     </a>
 
                     <!-- Booking Management -->
                     <a href="{{ route('admin.bookings.index') }}" 
                        class="{{ request()->routeIs('admin.bookings.*') ? 'bg-gradient-to-r from-teal-500/10 to-blue-500/10 text-white font-semibold border-l-4 border-teal-500 pl-3' : 'hover:bg-slate-900 hover:text-white pl-4' }} flex items-center gap-3 py-3 rounded-lg text-sm transition">
-                        <i class="fa-solid fa-calendar-check text-slate-500"></i> {{ __('Bookings') }}
+                        <i class="fa-solid fa-calendar-check text-slate-500"></i> {{ __('messages.bookings') }}
                     </a>
 
                     <!-- Enquiry Management -->
                     <a href="{{ route('admin.enquiries.index') }}" 
                        class="{{ request()->routeIs('admin.enquiries.*') ? 'bg-gradient-to-r from-teal-500/10 to-blue-500/10 text-white font-semibold border-l-4 border-teal-500 pl-3' : 'hover:bg-slate-900 hover:text-white pl-4' }} flex items-center gap-3 py-3 rounded-lg text-sm transition">
-                        <i class="fa-solid fa-envelope-open-text text-slate-500"></i> {{ __('Enquiries') }}
+                        <i class="fa-solid fa-envelope-open-text text-slate-500"></i> {{ __('messages.enquiries') }}
                     </a>
 
                     <!-- Admin Management (Super Admin ONLY) -->
                     @if(Auth::user()->role === 'Super Admin')
                         <div class="pt-6 pb-2 border-t border-slate-800/80 my-4">
-                            <span class="text-[10px] uppercase font-bold text-slate-600 tracking-wider px-4">{{ __('System Settings') }}</span>
+                            <span class="text-[10px] uppercase font-bold text-slate-600 tracking-wider px-4">{{ __('messages.system_settings') }}</span>
                         </div>
                         <a href="{{ route('admin.admins.index') }}" 
                            class="{{ request()->routeIs('admin.admins.*') ? 'bg-gradient-to-r from-teal-500/10 to-blue-500/10 text-white font-semibold border-l-4 border-teal-500 pl-3' : 'hover:bg-slate-900 hover:text-white pl-4' }} flex items-center gap-3 py-3 rounded-lg text-sm transition">
-                            <i class="fa-solid fa-shield-halved text-slate-500"></i> {{ __('Administrators') }}
+                            <i class="fa-solid fa-shield-halved text-slate-500"></i> {{ __('messages.administrators') }}
                         </a>
                     @endif
                 </nav>

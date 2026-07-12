@@ -37,103 +37,160 @@
                 </h4>
 
                 @forelse($bookings as $booking)
-                    <div class="border border-slate-100 rounded-2xl p-6 mb-6 hover:shadow-md transition flex flex-col md:flex-row md:items-center justify-between gap-6 last:mb-0">
-                        <div class="space-y-3">
-                            <div class="flex items-center gap-3">
-                                <span class="font-extrabold text-slate-900 text-lg">
-                                    {{ $booking->service->name }}
-                                </span>
-                                
-                                <!-- Localized Status Badge -->
-                                @if($booking->status === 'pending')
-                                    <span class="px-3 py-1 bg-yellow-50 text-yellow-700 border border-yellow-200 rounded-full text-xs font-bold uppercase tracking-wider">
-                                        {{ __('messages.pending') }}
+                    <div class="border border-slate-100 rounded-2xl p-6 mb-6 hover:shadow-md transition flex flex-col gap-6 last:mb-0">
+                        <div class="flex flex-col md:flex-row md:items-center justify-between gap-6">
+                            <div class="space-y-3">
+                                <div class="flex items-center gap-3">
+                                    <span class="font-extrabold text-slate-900 text-lg">
+                                        {{ $booking->service->name }}
                                     </span>
-                                @elseif($booking->status === 'accepted')
-                                    <span class="px-3 py-1 bg-blue-50 text-blue-700 border border-blue-200 rounded-full text-xs font-bold uppercase tracking-wider">
-                                        {{ __('messages.accepted') }}
-                                    </span>
-                                @elseif($booking->status === 'completed')
-                                    <span class="px-3 py-1 bg-teal-50 text-teal-700 border border-teal-200 rounded-full text-xs font-bold uppercase tracking-wider">
-                                        {{ __('messages.completed') }}
-                                    </span>
-                                @elseif($booking->status === 'rejected')
-                                    <span class="px-3 py-1 bg-rose-50 text-rose-700 border border-rose-200 rounded-full text-xs font-bold uppercase tracking-wider">
-                                        {{ __('messages.rejected') }}
-                                    </span>
-                                @else
-                                    <span class="px-3 py-1 bg-slate-50 text-slate-700 border border-slate-200 rounded-full text-xs font-bold uppercase tracking-wider">
-                                        {{ __('messages.cancelled') }}
-                                    </span>
-                                @endif
+                                    
+                                    <!-- Localized Status Badge -->
+                                    @if($booking->status === 'pending')
+                                        <span class="px-3 py-1 bg-yellow-50 text-yellow-700 border border-yellow-200 rounded-full text-xs font-bold uppercase tracking-wider">
+                                            {{ __('messages.pending') }}
+                                        </span>
+                                    @elseif($booking->status === 'accepted')
+                                        <span class="px-3 py-1 bg-blue-50 text-blue-700 border border-blue-200 rounded-full text-xs font-bold uppercase tracking-wider">
+                                            {{ __('messages.accepted') }}
+                                        </span>
+                                    @elseif($booking->status === 'completed')
+                                        <span class="px-3 py-1 bg-teal-50 text-teal-700 border border-teal-200 rounded-full text-xs font-bold uppercase tracking-wider">
+                                            {{ __('messages.completed') }}
+                                        </span>
+                                    @elseif($booking->status === 'rejected')
+                                        <span class="px-3 py-1 bg-rose-50 text-rose-700 border border-rose-200 rounded-full text-xs font-bold uppercase tracking-wider">
+                                            {{ __('messages.rejected') }}
+                                        </span>
+                                    @else
+                                        <span class="px-3 py-1 bg-slate-50 text-slate-700 border border-slate-200 rounded-full text-xs font-bold uppercase tracking-wider">
+                                            {{ __('messages.cancelled') }}
+                                        </span>
+                                    @endif
+                                </div>
+
+                                <div class="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-1 text-slate-500 text-xs font-medium">
+                                    <!-- Localized Date display via Carbon -->
+                                    <div>
+                                        <i class="fa-solid fa-calendar mx-1 text-slate-400"></i>
+                                        <span>{{ __('messages.date_label') }}</span>
+                                        <span class="text-slate-800 font-semibold">
+                                            {{ \Carbon\Carbon::parse($booking->booking_date)->translatedFormat('d F Y') }}
+                                        </span>
+                                    </div>
+                                    
+                                    <!-- Localized Slot display -->
+                                    @php
+                                        $slotKey = match($booking->preferred_time) {
+                                            '09:00 AM - 11:00 AM' => 'slot_morning',
+                                            '11:00 AM - 01:00 PM' => 'slot_late_morning',
+                                            '02:00 PM - 04:00 PM' => 'slot_afternoon',
+                                            '04:00 PM - 06:00 PM' => 'slot_evening',
+                                            default => null
+                                        };
+                                    @endphp
+                                    <div>
+                                        <i class="fa-solid fa-clock mx-1 text-slate-400"></i>
+                                        <span>{{ __('messages.slot_label') }}</span>
+                                        <span class="text-slate-800 font-semibold">
+                                            {{ $slotKey ? __('messages.' . $slotKey) : $booking->preferred_time }}
+                                        </span>
+                                    </div>
+                                    
+                                    <div class="col-span-full mt-1">
+                                        <i class="fa-solid fa-location-dot mx-1 text-slate-400"></i>
+                                        <span>{{ __('messages.address_label') }}</span>
+                                        <span class="text-slate-800 font-semibold">{{ $booking->address }}</span>
+                                    </div>
+                                    
+                                    @if($booking->notes)
+                                        <div class="col-span-full mt-1">
+                                            <i class="fa-solid fa-comment mx-1 text-slate-400"></i>
+                                            <span>{{ __('messages.notes_label') }}</span>
+                                            <span class="text-slate-800 italic">"{{ $booking->notes }}"</span>
+                                        </div>
+                                    @endif
+                                </div>
                             </div>
 
-                            <div class="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-1 text-slate-500 text-xs font-medium">
-                                <!-- Localized Date display via Carbon -->
+                            <!-- Assigned Worker info (Logical border and padding: md:ps-6 md:border-s) -->
+                            <div class="pt-4 md:pt-0 md:ps-6 border-t md:border-t-0 md:border-s border-slate-100 flex items-center gap-4 min-w-[240px] w-full md:w-auto">
+                                <div class="h-12 w-12 rounded-full bg-slate-100 flex items-center justify-center text-slate-600 font-bold overflow-hidden shadow-inner flex-shrink-0">
+                                    @if($booking->worker && $booking->worker->workerProfile && $booking->worker->workerProfile->photo)
+                                        <img src="{{ asset('storage/' . $booking->worker->workerProfile->photo) }}" class="w-full h-full object-cover" alt="">
+                                    @else
+                                        <i class="fa-solid fa-user text-slate-400"></i>
+                                    @endif
+                                </div>
                                 <div>
-                                    <i class="fa-solid fa-calendar mx-1 text-slate-400"></i>
-                                    <span>{{ __('messages.date_label') }}</span>
-                                    <span class="text-slate-800 font-semibold">
-                                        {{ \Carbon\Carbon::parse($booking->booking_date)->translatedFormat('d F Y') }}
+                                    <span class="text-[10px] uppercase font-bold text-slate-400 tracking-wider block">{{ __('messages.assigned_specialist_lbl') }}</span>
+                                    <span class="font-bold text-slate-800 text-sm">
+                                        {{ $booking->worker->name ?? __('messages.awaiting_assignment') }}
                                     </span>
+                                    @if($booking->worker && $booking->worker->workerProfile)
+                                        <span class="text-xs text-slate-500 block">
+                                            <span>{{ __('messages.phone_label') }}</span>
+                                            <span>{{ $booking->worker->workerProfile->phone }}</span>
+                                        </span>
+                                    @endif
                                 </div>
-                                
-                                <!-- Localized Slot display -->
-                                @php
-                                    $slotKey = match($booking->preferred_time) {
-                                        '09:00 AM - 11:00 AM' => 'slot_morning',
-                                        '11:00 AM - 01:00 PM' => 'slot_late_morning',
-                                        '02:00 PM - 04:00 PM' => 'slot_afternoon',
-                                        '04:00 PM - 06:00 PM' => 'slot_evening',
-                                        default => null
-                                    };
-                                @endphp
-                                <div>
-                                    <i class="fa-solid fa-clock mx-1 text-slate-400"></i>
-                                    <span>{{ __('messages.slot_label') }}</span>
-                                    <span class="text-slate-800 font-semibold">
-                                        {{ $slotKey ? __('messages.' . $slotKey) : $booking->preferred_time }}
-                                    </span>
-                                </div>
-                                
-                                <div class="col-span-full mt-1">
-                                    <i class="fa-solid fa-location-dot mx-1 text-slate-400"></i>
-                                    <span>{{ __('messages.address_label') }}</span>
-                                    <span class="text-slate-800 font-semibold">{{ $booking->address }}</span>
-                                </div>
-                                
-                                @if($booking->notes)
-                                    <div class="col-span-full mt-1">
-                                        <i class="fa-solid fa-comment mx-1 text-slate-400"></i>
-                                        <span>{{ __('messages.notes_label') }}</span>
-                                        <span class="text-slate-800 italic">"{{ $booking->notes }}"</span>
+                            </div>
+                        </div>
+
+                        <!-- Feedback & Ratings Block -->
+                        @if($booking->status === 'completed')
+                            <div class="mt-2 pt-4 border-t border-slate-100">
+                                @if(!$booking->feedback)
+                                    <form action="{{ route('feedback.store', $booking->id) }}" method="POST" class="space-y-4" x-data="{ rating: 5, hover: 0 }">
+                                        @csrf
+                                        <div class="flex flex-col gap-2">
+                                            <span class="text-xs font-extrabold uppercase tracking-wider text-slate-500">{{ __('messages.leave_review') }}</span>
+                                            <div class="flex items-center gap-1.5">
+                                                <template x-for="i in 5">
+                                                    <button type="button" 
+                                                        @click="rating = i" 
+                                                        @mouseenter="hover = i" 
+                                                        @mouseleave="hover = 0"
+                                                        class="text-2xl focus:outline-none transition hover:scale-110">
+                                                        <i class="fa-star" :class="i <= (hover || rating) ? 'fa-solid text-amber-400' : 'fa-regular text-slate-300'"></i>
+                                                    </button>
+                                                </template>
+                                                <input type="hidden" name="rating" :value="rating">
+                                            </div>
+                                        </div>
+
+                                        <div class="flex flex-col gap-1.5">
+                                            <textarea name="comment" rows="2" placeholder="{{ __('messages.your_review') }}" 
+                                                class="w-full text-sm border border-slate-200 rounded-xl px-4 py-3 focus:outline-none focus:border-teal-500 focus:ring-1 focus:ring-teal-500 transition"></textarea>
+                                        </div>
+
+                                        <button type="submit" class="px-5 py-2.5 bg-teal-600 hover:bg-teal-700 text-white font-bold rounded-xl text-xs transition shadow-sm hover:shadow">
+                                            {{ __('messages.submit_review') }}
+                                        </button>
+                                    </form>
+                                @else
+                                    <div class="bg-slate-50 rounded-2xl p-4 border border-slate-100 flex flex-col gap-2">
+                                        <div class="flex items-center justify-between">
+                                            <div class="flex items-center gap-1">
+                                                @for($i = 1; $i <= 5; $i++)
+                                                    @if($i <= $booking->feedback->rating)
+                                                        <i class="fa-solid fa-star text-amber-400 text-sm"></i>
+                                                    @else
+                                                        <i class="fa-regular fa-star text-slate-300 text-sm"></i>
+                                                    @endif
+                                                @endfor
+                                            </div>
+                                            <span class="text-[10px] font-bold text-slate-400 uppercase tracking-wider">
+                                                {{ $booking->feedback->created_at->translatedFormat('d M Y') }}
+                                            </span>
+                                        </div>
+                                        @if($booking->feedback->comment)
+                                            <p class="text-sm text-slate-600 italic">"{{ $booking->feedback->comment }}"</p>
+                                        @endif
                                     </div>
                                 @endif
                             </div>
-                        </div>
-
-                        <!-- Assigned Worker info (Logical border and padding: md:ps-6 md:border-s) -->
-                        <div class="pt-4 md:pt-0 md:ps-6 border-t md:border-t-0 md:border-s border-slate-100 flex items-center gap-4 min-w-[240px]">
-                            <div class="h-12 w-12 rounded-full bg-slate-100 flex items-center justify-center text-slate-600 font-bold overflow-hidden shadow-inner flex-shrink-0">
-                                @if($booking->worker && $booking->worker->workerProfile && $booking->worker->workerProfile->photo)
-                                    <img src="{{ asset('storage/' . $booking->worker->workerProfile->photo) }}" class="w-full h-full object-cover" alt="">
-                                @else
-                                    <i class="fa-solid fa-user text-slate-400"></i>
-                                @endif
-                            </div>
-                            <div>
-                                <span class="text-[10px] uppercase font-bold text-slate-400 tracking-wider block">{{ __('messages.assigned_specialist_lbl') }}</span>
-                                <span class="font-bold text-slate-800 text-sm">
-                                    {{ $booking->worker->name ?? __('messages.awaiting_assignment') }}
-                                </span>
-                                @if($booking->worker && $booking->worker->workerProfile)
-                                    <span class="text-xs text-slate-500 block">
-                                        <span>{{ __('messages.phone_label') }}</span>
-                                        <span>{{ $booking->worker->workerProfile->phone }}</span>
-                                    </span>
-                                @endif
-                            </div>
-                        </div>
+                        @endif
                     </div>
                 @empty
                     <div class="text-center py-12">

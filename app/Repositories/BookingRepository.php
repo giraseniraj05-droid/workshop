@@ -11,7 +11,7 @@ class BookingRepository
      */
     public function getAll(array $filters = [])
     {
-        $query = Booking::with(['customer', 'worker', 'service']);
+        $query = Booking::with(['customer', 'worker', 'service', 'feedback']);
 
         if (!empty($filters['status'])) {
             $query->where('status', $filters['status']);
@@ -33,7 +33,7 @@ class BookingRepository
      */
     public function find($id)
     {
-        return Booking::with(['customer', 'worker', 'service'])->findOrFail($id);
+        return Booking::with(['customer', 'worker', 'service', 'feedback'])->findOrFail($id);
     }
 
     /**
@@ -42,7 +42,7 @@ class BookingRepository
     public function getForCustomer($customerId)
     {
         return Booking::where('customer_id', $customerId)
-            ->with(['worker', 'service'])
+            ->with(['worker', 'service', 'feedback'])
             ->orderBy('created_at', 'desc')
             ->get();
     }
@@ -53,7 +53,7 @@ class BookingRepository
     public function getForWorker($workerId)
     {
         return Booking::where('worker_id', $workerId)
-            ->with(['customer', 'service'])
+            ->with(['customer', 'service', 'feedback'])
             ->orderBy('created_at', 'desc')
             ->get();
     }

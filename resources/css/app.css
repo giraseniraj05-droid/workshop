@@ -40,6 +40,10 @@ body {
     min-height: 100vh;
 }
 
+html {
+    color-scheme: light;
+}
+
 /* Smooth transitions (0.3s - 0.4s) on interactive elements */
 a, button, select, input, textarea, tr, .transition {
     transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter;
@@ -69,4 +73,13 @@ button:hover, .btn-hover-effect:hover {
 
 button:active, .btn-hover-effect:active {
     transform: translateY(0);
+}
+
+.auth-gradient-button {
+    background-image: var(--gradient-primary);
+    background-size: 100% 100%;
+}
+
+.auth-gradient-button:hover {
+    background-image: var(--hover-gradient);
 }

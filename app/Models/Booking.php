@@ -42,4 +42,12 @@ class Booking extends Model
     {
         return $this->belongsTo(Service::class, 'service_id');
     }
+
+    /**
+     * Get the feedback associated with this booking.
+     */
+    public function feedback()
+    {
+        return $this->hasOne(Feedback::class, 'booking_id');
+    }
 }

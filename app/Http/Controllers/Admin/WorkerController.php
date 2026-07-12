@@ -10,21 +10,25 @@ use App\Repositories\ServiceRepository;
 use App\Services\AssignmentService;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
+use App\Repositories\FeedbackRepository;
 
 class WorkerController extends Controller
 {
     protected $workerRepository;
     protected $serviceRepository;
     protected $assignmentService;
+    protected $feedbackRepository;
 
     public function __construct(
         WorkerRepository $workerRepository,
         ServiceRepository $serviceRepository,
-        AssignmentService $assignmentService
+        AssignmentService $assignmentService,
+        FeedbackRepository $feedbackRepository
     ) {
         $this->workerRepository = $workerRepository;
         $this->serviceRepository = $serviceRepository;
         $this->assignmentService = $assignmentService;
+        $this->feedbackRepository = $feedbackRepository;
     }
 
     /**
@@ -122,7 +126,11 @@ class WorkerController extends Controller
         $allServices = $this->serviceRepository->getAll();
         $history = $this->workerRepository->getAssignmentHistory($id);
 
-        return view('admin.workers.show', compact('worker', 'profile', 'assignedServices', 'allServices', 'history'));
+        $reviews = $this->feedbackRepository->getForWorker($id);
+        $averageRating = $reviews->avg('rating') ?: 0;
+        $reviewsCount = $reviews->count();
+
+        return view('admin.workers.show', compact('worker', 'profile', 'assignedServices', 'allServices', 'history', 'reviews', 'averageRating', 'reviewsCount'));
     }
 
     /**

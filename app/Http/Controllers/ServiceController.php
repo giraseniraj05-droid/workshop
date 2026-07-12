@@ -4,18 +4,22 @@ namespace App\Http\Controllers;
 
 use App\Repositories\ServiceRepository;
 use App\Repositories\WorkerRepository;
+use App\Repositories\FeedbackRepository;
 
 class ServiceController extends Controller
 {
     protected $serviceRepository;
     protected $workerRepository;
+    protected $feedbackRepository;
 
     public function __construct(
         ServiceRepository $serviceRepository,
-        WorkerRepository $workerRepository
+        WorkerRepository $workerRepository,
+        FeedbackRepository $feedbackRepository
     ) {
         $this->serviceRepository = $serviceRepository;
         $this->workerRepository = $workerRepository;
+        $this->feedbackRepository = $feedbackRepository;
     }
 
     /**
@@ -32,6 +36,11 @@ class ServiceController extends Controller
         // Get only active workers assigned to this active service
         $workers = $this->workerRepository->getPublicWorkersForService($service->id);
 
-        return view('services.show', compact('service', 'workers'));
+        // Fetch feedback / reviews for the service
+        $reviews = $this->feedbackRepository->getForService($service->id);
+        $averageRating = $reviews->avg('rating') ?: 0;
+        $reviewsCount = $reviews->count();
+
+        return view('services.show', compact('service', 'workers', 'reviews', 'averageRating', 'reviewsCount'));
     }
 }

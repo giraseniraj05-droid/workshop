@@ -4,71 +4,77 @@
     <div class="mb-10 flex flex-col md:flex-row md:items-center justify-between gap-4">
         <div>
             <h2 class="text-3xl font-black text-slate-900 mb-1">{{ __('messages.dashboard') }}</h2>
-            <p class="text-slate-500 text-sm font-medium">Welcome to Servicely Management. Here is your overview.</p>
+            <p class="text-slate-500 text-sm font-medium">{{ __('messages.admin_dashboard_desc') }}</p>
         </div>
     </div>
 
     <!-- Stat Widgets Grid -->
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-6 mb-10">
+    <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 2xl:grid-cols-5 gap-8 mb-10">
         
         <!-- Services -->
-        <div class="bg-white p-6 rounded-2xl border border-slate-100 shadow-sm flex items-center gap-4">
-            <div class="h-12 w-12 rounded-xl bg-teal-50 text-teal-600 flex items-center justify-center flex-shrink-0 text-lg">
+        <div class="w-full h-full min-h-[150px] bg-white p-8 rounded-3xl border border-slate-100 shadow-sm flex items-center gap-5">
+            <div class="h-14 w-14 rounded-2xl bg-teal-50 text-teal-600 flex items-center justify-center flex-shrink-0 text-lg">
                 <i class="fa-solid fa-layer-group"></i>
             </div>
-            <div>
-                <span class="text-xs text-slate-400 font-bold uppercase tracking-wider block">{{ __('messages.total_services') }}</span>
-                <span class="text-2xl font-black text-slate-800">{{ $stats['active_services'] }} <span class="text-xs text-slate-400 font-normal">/ {{ $stats['total_services'] }}</span></span>
+            <div class="min-w-0 flex-1 flex flex-col justify-center">
+                <span class="text-xs text-slate-400 font-bold uppercase tracking-[0.18em] block leading-tight">{{ __('messages.total_services') }}</span>
+                <div class="mt-2 inline-flex items-end gap-1 whitespace-nowrap">
+                    <span class="text-3xl font-black text-slate-800 leading-none">{{ $stats['active_services'] }}</span>
+                    <span class="text-xs text-slate-400 font-normal leading-none">/ {{ $stats['total_services'] }}</span>
+                </div>
             </div>
         </div>
 
         <!-- Workers -->
-        <div class="bg-white p-6 rounded-2xl border border-slate-100 shadow-sm flex items-center gap-4">
-            <div class="h-12 w-12 rounded-xl bg-blue-50 text-blue-600 flex items-center justify-center flex-shrink-0 text-lg">
+        <div class="w-full h-full min-h-[150px] bg-white p-8 rounded-3xl border border-slate-100 shadow-sm flex items-center gap-5">
+            <div class="h-14 w-14 rounded-2xl bg-blue-50 text-blue-600 flex items-center justify-center flex-shrink-0 text-lg">
                 <i class="fa-solid fa-user-gear"></i>
             </div>
-            <div>
-                <span class="text-xs text-slate-400 font-bold uppercase tracking-wider block">{{ __('messages.total_workers') }}</span>
-                <span class="text-2xl font-black text-slate-800">{{ $stats['active_workers'] }} <span class="text-xs text-slate-400 font-normal">/ {{ $stats['total_workers'] }}</span></span>
+            <div class="min-w-0 flex-1 flex flex-col justify-center">
+                <span class="text-xs text-slate-400 font-bold uppercase tracking-[0.18em] block leading-tight">{{ __('messages.total_workers') }}</span>
+                <div class="mt-2 inline-flex items-end gap-1 whitespace-nowrap">
+                    <span class="text-3xl font-black text-slate-800 leading-none">{{ $stats['active_workers'] }}</span>
+                    <span class="text-xs text-slate-400 font-normal leading-none">/ {{ $stats['total_workers'] }}</span>
+                </div>
             </div>
         </div>
 
         <!-- Customers -->
-        <div class="bg-white p-6 rounded-2xl border border-slate-100 shadow-sm flex items-center gap-4">
-            <div class="h-12 w-12 rounded-xl bg-purple-50 text-purple-600 flex items-center justify-center flex-shrink-0 text-lg">
+        <div class="w-full h-full min-h-[150px] bg-white p-8 rounded-3xl border border-slate-100 shadow-sm flex items-center gap-5">
+            <div class="h-14 w-14 rounded-2xl bg-purple-50 text-purple-600 flex items-center justify-center flex-shrink-0 text-lg">
                 <i class="fa-solid fa-users"></i>
             </div>
-            <div>
-                <span class="text-xs text-slate-400 font-bold uppercase tracking-wider block">{{ __('messages.total_customers') }}</span>
-                <span class="text-2xl font-black text-slate-800">{{ $stats['total_customers'] }}</span>
+            <div class="min-w-0 flex-1 flex flex-col justify-center">
+                <span class="text-xs text-slate-400 font-bold uppercase tracking-[0.18em] block leading-tight">{{ __('messages.total_customers') }}</span>
+                <span class="mt-2 text-3xl font-black text-slate-800 leading-none whitespace-nowrap">{{ $stats['total_customers'] }}</span>
             </div>
         </div>
 
         <!-- Pending Bookings -->
-        <div class="bg-white p-6 rounded-2xl border border-slate-100 shadow-sm flex items-center gap-4">
-            <div class="h-12 w-12 rounded-xl bg-yellow-50 text-yellow-600 flex items-center justify-center flex-shrink-0 text-lg relative">
+        <div class="w-full h-full min-h-[150px] bg-white p-8 rounded-3xl border border-slate-100 shadow-sm flex items-center gap-5">
+            <div class="h-14 w-14 rounded-2xl bg-yellow-50 text-yellow-600 flex items-center justify-center flex-shrink-0 text-lg relative">
                 <i class="fa-solid fa-calendar-check"></i>
                 @if($stats['pending_bookings'] > 0)
                     <span class="absolute top-0 right-0 h-2 w-2 rounded-full bg-yellow-500 ring-2 ring-white"></span>
                 @endif
             </div>
-            <div>
-                <span class="text-xs text-slate-400 font-bold uppercase tracking-wider block">{{ __('messages.pending_jobs') }}</span>
-                <span class="text-2xl font-black text-slate-800">{{ $stats['pending_bookings'] }}</span>
+            <div class="min-w-0 flex-1 flex flex-col justify-center">
+                <span class="text-xs text-slate-400 font-bold uppercase tracking-[0.18em] block leading-tight">{{ __('messages.pending_jobs') }}</span>
+                <span class="mt-2 text-3xl font-black text-slate-800 leading-none whitespace-nowrap">{{ $stats['pending_bookings'] }}</span>
             </div>
         </div>
 
         <!-- Open Enquiries -->
-        <div class="bg-white p-6 rounded-2xl border border-slate-100 shadow-sm flex items-center gap-4">
-            <div class="h-12 w-12 rounded-xl bg-red-50 text-red-600 flex items-center justify-center flex-shrink-0 text-lg relative">
+        <div class="w-full h-full min-h-[150px] bg-white p-8 rounded-3xl border border-slate-100 shadow-sm flex items-center gap-5">
+            <div class="h-14 w-14 rounded-2xl bg-red-50 text-red-600 flex items-center justify-center flex-shrink-0 text-lg relative">
                 <i class="fa-solid fa-envelope-open-text"></i>
                 @if($stats['open_enquiries'] > 0)
                     <span class="absolute top-0 right-0 h-2 w-2 rounded-full bg-red-500 ring-2 ring-white"></span>
                 @endif
             </div>
-            <div>
-                <span class="text-xs text-slate-400 font-bold uppercase tracking-wider block">{{ __('messages.open_queries') }}</span>
-                <span class="text-2xl font-black text-slate-800">{{ $stats['open_enquiries'] }}</span>
+            <div class="min-w-0 flex-1 flex flex-col justify-center">
+                <span class="text-xs text-slate-400 font-bold uppercase tracking-[0.18em] block leading-tight">{{ __('messages.open_queries') }}</span>
+                <span class="mt-2 text-3xl font-black text-slate-800 leading-none whitespace-nowrap">{{ $stats['open_enquiries'] }}</span>
             </div>
         </div>
 
@@ -108,7 +114,7 @@
                                 {{ $assignment->service->name }}
                             </td>
                             <td class="py-4 px-6 text-xs font-medium text-slate-500">
-                                {{ $assignment->admin->name ?? 'System' }}
+                                {{ $assignment->admin->name ?? __('messages.system_label') }}
                             </td>
                             <td class="py-4 px-6 text-xs text-slate-500 font-semibold">
                                 {{ $assignment->assigned_at->format('M d, Y h:i A') }}

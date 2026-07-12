@@ -12,6 +12,27 @@ export default {
     theme: {
         extend: {
             colors: {
+                primary: {
+                    DEFAULT: 'var(--primary)',
+                    light: 'var(--primary-light)',
+                    lightest: 'var(--primary-lightest)',
+                    dark: 'var(--primary-dark)',
+                    darker: 'var(--primary-darker)',
+                    darkest: 'var(--primary-darkest)',
+                },
+                secondary: {
+                    DEFAULT: 'var(--secondary)',
+                    lightest: 'var(--secondary-lightest)',
+                    light: 'var(--secondary-light)',
+                    dark: 'var(--secondary-dark)',
+                    darker: 'var(--secondary-darker)',
+                },
+                accent: {
+                    DEFAULT: 'var(--accent)',
+                    light: 'var(--accent-light)',
+                    dark: 'var(--accent-dark)',
+                },
+                background: 'var(--background)',
                 teal: {
                     50: 'var(--primary-lightest)',
                     100: 'var(--primary-lightest)',
@@ -35,7 +56,7 @@ export default {
                     500: 'var(--accent)',
                     600: 'var(--accent-dark)',
                     700: 'var(--accent-dark)',
-                }
+                },
             },
             fontFamily: {
                 sans: ['Figtree', ...defaultTheme.fontFamily.sans],

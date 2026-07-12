@@ -6,6 +6,7 @@ use Illuminate\Console\Command;
 use App\Models\Service;
 use App\Models\WorkerServiceAssignment;
 use App\Models\Booking;
+use App\Models\Feedback;
 
 class CreateMongoDBIndexes extends Command
 {
@@ -46,6 +47,13 @@ class CreateMongoDBIndexes extends Command
             $collection->createIndex(['status' => 1]);
             $collection->createIndex(['customer_id' => 1]);
             $collection->createIndex(['worker_id' => 1]);
+        });
+
+        $this->info('Creating indexes for Feedback...');
+        Feedback::raw(function ($collection) {
+            $collection->createIndex(['booking_id' => 1], ['unique' => true]);
+            $collection->createIndex(['worker_id' => 1]);
+            $collection->createIndex(['service_id' => 1]);
         });
 
         $this->info('All MongoDB indexes created successfully!');
