@@ -108,7 +108,7 @@
                 <!-- Hero Image -->
                 <div class="h-48 overflow-hidden bg-slate-100 relative">
                     <div class="absolute inset-0 bg-slate-800/10 group-hover:bg-slate-800/0 transition-all duration-300"></div>
-                    <img src="{{ $service->image ? asset('storage/' . $service->image) : asset('images/service-placeholder.png') }}"
+                    <img src="{{ $service->image ? (str_starts_with($service->image, 'images/') ? asset($service->image) : asset('storage/' . $service->image)) : asset('images/service-placeholder.png') }}"
                         alt="{{ $service->name }}"
                         class="w-full h-full object-cover group-hover:scale-105 transition-all duration-500" />
 

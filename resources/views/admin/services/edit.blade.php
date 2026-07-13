@@ -112,7 +112,7 @@
                 <div class="flex items-center gap-6 mb-4">
                     <div class="h-20 w-32 rounded-xl bg-slate-50 border border-slate-100 overflow-hidden flex items-center justify-center flex-shrink-0">
                         @if($service->image)
-                            <img src="{{ asset('storage/' . $service->image) }}" class="w-full h-full object-cover" alt="">
+                            <img src="{{ str_starts_with($service->image, 'images/') ? asset($service->image) : asset('storage/' . $service->image) }}" class="w-full h-full object-cover" alt="">
                         @else
                             <i class="fa-solid fa-image text-2xl text-slate-300"></i>
                         @endif

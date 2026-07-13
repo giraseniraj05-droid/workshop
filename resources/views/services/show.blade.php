@@ -76,7 +76,7 @@
 
         <!-- Service Hero Section -->
         <section class="bg-slate-900 text-white py-16 relative overflow-hidden">
-            <div class="absolute inset-0 bg-cover bg-center opacity-30" style="background-image: url('{{ $service->image ? asset('storage/' . $service->image) : asset('images/service-placeholder.png') }}');"></div>
+            <div class="absolute inset-0 bg-cover bg-center opacity-30" style="background-image: url('{{ $service->image ? (str_starts_with($service->image, 'images/') ? asset($service->image) : asset('storage/' . $service->image)) : asset('images/service-placeholder.png') }}');"></div>
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
                 <div>
                     <span class="px-3 py-1 bg-teal-500/20 text-teal-400 rounded-full text-xs font-bold uppercase tracking-wider mb-4 inline-block">
