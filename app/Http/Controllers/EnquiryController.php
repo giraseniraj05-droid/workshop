@@ -25,11 +25,7 @@ class EnquiryController extends Controller
         // Send email to admins
         $admins = User::whereIn('role', ['Admin', 'Super Admin'])->where('status', 'active')->get();
         foreach ($admins as $admin) {
-            try {
-                $admin->notify(new NewEnquirySubmittedNotification($enquiry));
-            } catch (\Throwable $e) {
-                logger()->error('Failed to send enquiry notification to admin ' . $admin->email . ': ' . $e->getMessage());
-            }
+            $admin->notify(new NewEnquirySubmittedNotification($enquiry));
         }
 
         return redirect()->back()

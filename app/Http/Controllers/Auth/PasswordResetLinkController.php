@@ -30,15 +30,9 @@ class PasswordResetLinkController extends Controller
             'email' => ['required', 'email'],
         ]);
 
-        try {
-            $status = Password::sendResetLink(
-                $request->only('email')
-            );
-        } catch (\Throwable $e) {
-            logger()->error('Failed to send password reset email: ' . $e->getMessage());
-            return back()->withInput($request->only('email'))
-                ->withErrors(['email' => 'We were unable to send the password reset email. The mail service is temporarily unavailable.']);
-        }
+        $status = Password::sendResetLink(
+            $request->only('email')
+        );
 
         return $status == Password::RESET_LINK_SENT
                     ? back()->with('status', __($status))

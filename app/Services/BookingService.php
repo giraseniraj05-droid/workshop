@@ -33,21 +33,13 @@ class BookingService
         // Send notification to admins
         $admins = User::whereIn('role', ['Admin', 'Super Admin'])->where('status', 'active')->get();
         foreach ($admins as $admin) {
-            try {
-                $admin->notify(new NewBookingSubmittedNotification($booking));
-            } catch (\Throwable $e) {
-                logger()->error('Failed to send booking notification to admin ' . $admin->email . ': ' . $e->getMessage());
-            }
+            $admin->notify(new NewBookingSubmittedNotification($booking));
         }
 
         // If customer chose a worker during booking, notify worker immediately
         if ($booking->worker_id) {
             $booking->load('worker');
-            try {
-                $booking->worker->notify(new WorkerAssignedToBookingNotification($booking));
-            } catch (\Throwable $e) {
-                logger()->error('Failed to send worker assignment notification: ' . $e->getMessage());
-            }
+            $booking->worker->notify(new WorkerAssignedToBookingNotification($booking));
         }
 
         return $booking;
@@ -65,11 +57,7 @@ class BookingService
         $booking->load(['customer', 'service', 'worker']);
 
         // Notify customer of status change
-        try {
-            $booking->customer->notify(new BookingStatusChangedNotification($booking));
-        } catch (\Throwable $e) {
-            logger()->error('Failed to send booking status change notification: ' . $e->getMessage());
-        }
+        $booking->customer->notify(new BookingStatusChangedNotification($booking));
 
         return $booking;
     }
@@ -92,11 +80,7 @@ class BookingService
 
         // Notify worker of the assignment if it's a new worker
         if ($workerId && $workerId !== $oldWorkerId) {
-            try {
-                $booking->worker->notify(new WorkerAssignedToBookingNotification($booking));
-            } catch (\Throwable $e) {
-                logger()->error('Failed to send worker assignment notification: ' . $e->getMessage());
-            }
+            $booking->worker->notify(new WorkerAssignedToBookingNotification($booking));
         }
 
         return $booking;
