@@ -31,6 +31,6 @@ return [
     'cache' => [
         'expiration_time' => null,
         'key' => 'mongo-permission',
-        'store' => 'default',
+        'store' => env('CACHE_STORE', 'file'),
     ],
 ];
