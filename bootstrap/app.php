@@ -22,6 +22,8 @@ return Application::configure(basePath: dirname(__DIR__))
         ]);
     })
     ->withExceptions(function (Exceptions $exceptions): void {
-        //
+        $exceptions->report(function (\Throwable $e) {
+            error_log('[RENDER-DEBUG] EXCEPTION CAUGHT: ' . $e->getMessage() . PHP_EOL . $e->getTraceAsString());
+        });
     })
     ->create();
