@@ -81,83 +81,7 @@ __('Return to the services page anytime'),
                 linear-gradient(180deg, #f8fafc 0%, #eef4ff 100%);
         }
 
-        .login-header {
-            position: sticky;
-            top: 0;
-            z-index: 10;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            gap: 16px;
-            padding: 20px 28px;
-            background: rgba(255, 255, 255, 0.82);
-            backdrop-filter: blur(18px);
-            border-bottom: 1px solid rgba(148, 163, 184, 0.18);
-        }
 
-        .brand {
-            display: flex;
-            align-items: center;
-            gap: 14px;
-            text-decoration: none;
-            color: inherit;
-        }
-
-        .brand-mark {
-            width: 44px;
-            height: 44px;
-            display: grid;
-            place-items: center;
-            border-radius: 14px;
-            background: linear-gradient(135deg, var(--login-primary), var(--login-secondary));
-            color: white;
-            font-weight: 800;
-            box-shadow: 0 12px 28px rgba(30, 64, 175, 0.18);
-        }
-
-        .brand-name {
-            font-size: 1rem;
-            font-weight: 900;
-            letter-spacing: 0.16em;
-            text-transform: uppercase;
-            color: #172554;
-        }
-
-        .header-actions {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-        }
-
-        .lang-pill,
-        .header-link {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            border-radius: 999px;
-            text-decoration: none;
-            font-weight: 700;
-            transition: transform 180ms ease, box-shadow 180ms ease, background 180ms ease;
-        }
-
-        .lang-pill {
-            padding: 10px 16px;
-            border: 1px solid rgba(148, 163, 184, 0.35);
-            color: #475569;
-            background: rgba(255, 255, 255, 0.75);
-        }
-
-        .header-link {
-            padding: 10px 18px;
-            color: #0f172a;
-            background: white;
-            box-shadow: 0 10px 22px rgba(15, 23, 42, 0.08);
-        }
-
-        .header-link.is-active {
-            color: white;
-            background: linear-gradient(135deg, var(--login-primary), var(--login-secondary));
-        }
 
         .login-main {
             flex: 1;
@@ -465,37 +389,7 @@ __('Return to the services page anytime'),
             line-height: 1.5;
         }
 
-        .page-footer {
-            margin-top: auto;
-            border-top: 1px solid #1e293b;
-            background: #0f172a;
-            color: #94a3b8;
-            padding: 48px 24px;
-        }
 
-        .page-footer-inner {
-            width: min(1280px, 100%);
-            margin: 0 auto;
-            display: flex;
-            flex-direction: column;
-            gap: 18px;
-            align-items: center;
-            justify-content: space-between;
-            text-align: center;
-        }
-
-        .page-footer-brand {
-            color: white;
-            font-size: 1.25rem;
-            font-weight: 900;
-            letter-spacing: 0.18em;
-        }
-
-        .page-footer-copy {
-            margin: 0;
-            font-size: 0.95rem;
-            line-height: 1.7;
-        }
 
         @media (max-width: 1024px) {
             .login-grid {
@@ -508,9 +402,7 @@ __('Return to the services page anytime'),
         }
 
         @media (max-width: 768px) {
-            .login-header {
-                padding: 16px 18px;
-            }
+
 
             .login-main {
                 padding: 18px 14px 28px;

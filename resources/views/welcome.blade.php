@@ -27,41 +27,7 @@
     <!-- Tailwind CSS & Vite -->
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 
-    <style>
-        .login-header {
-            position: sticky;
-            top: 0;
-            z-index: 10;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            gap: 16px;
-            padding: 20px 28px;
-            background: rgba(255, 255, 255, 0.82);
-            backdrop-filter: blur(18px);
-            border-bottom: 1px solid rgba(148, 163, 184, 0.18);
-        }
-        .login-header .brand { display: flex; align-items: center; gap: 14px; text-decoration: none; color: inherit; }
-        .login-header .brand-mark {
-            width: 44px; height: 44px; display: grid; place-items: center; border-radius: 14px;
-            background: linear-gradient(135deg, #1e40af, #d97706);
-            color: white; font-weight: 800; box-shadow: 0 12px 28px rgba(30, 64, 175, 0.18);
-        }
-        .login-header .brand-name { font-size: 1rem; font-weight: 900; letter-spacing: 0.16em; text-transform: uppercase; color: #172554; }
-        .login-header .header-actions { display: flex; align-items: center; gap: 12px; }
-        .login-header .lang-pill, .login-header .header-link {
-            display: inline-flex; align-items: center; gap: 8px; border-radius: 999px;
-            text-decoration: none; font-weight: 700;
-        }
-        .login-header .lang-pill { padding: 10px 16px; border: 1px solid rgba(148, 163, 184, 0.35); color: #475569; background: rgba(255, 255, 255, 0.75); }
-        .login-header .header-link { padding: 10px 18px; color: #0f172a; background: white; box-shadow: 0 10px 22px rgba(15, 23, 42, 0.08); }
-        .login-header .header-link.is-active { color: white; background: linear-gradient(135deg, #1e40af, #d97706); }
 
-        .page-footer { margin-top: auto; border-top: 1px solid #1e293b; background: #0f172a; color: #94a3b8; padding: 48px 24px; }
-        .page-footer-inner { width: min(1280px, 100%); margin: 0 auto; display: flex; flex-direction: column; gap: 18px; align-items: center; justify-content: space-between; text-align: center; }
-        .page-footer-brand { color: white; font-size: 1.25rem; font-weight: 900; letter-spacing: 0.18em; }
-        .page-footer-copy { margin: 0; font-size: 0.95rem; line-height: 1.7; }
-    </style>
 </head>
 <body class="font-sans antialiased bg-slate-50 text-slate-800">
 

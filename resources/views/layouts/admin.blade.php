@@ -45,7 +45,9 @@
     <body class="font-sans antialiased bg-slate-50 text-slate-800" x-data="{ sidebarOpen: false }">
         
         <div class="min-h-screen flex">
-            
+            <!-- Sidebar Backdrop for mobile -->
+            <div x-show="sidebarOpen" x-transition.opacity @click="sidebarOpen = false" class="fixed inset-0 z-30 bg-slate-900/40 backdrop-blur-sm lg:hidden" x-cloak></div>
+
             <!-- Sidebar -->
             <aside :class="sidebarOpen ? 'translate-x-0' : (app()->getLocale() === 'ar' ? 'translate-x-full' : '-translate-x-full')" 
                    class="fixed inset-y-0 start-0 z-40 w-64 bg-gradient-to-b from-slate-950 via-slate-900 to-slate-950 text-slate-400 transform lg:translate-x-0 lg:static lg:inset-0 transition-transform duration-300 flex-shrink-0 flex flex-col border-e border-slate-800 shadow-2xl">
@@ -121,37 +123,14 @@
             <div class="flex-1 flex flex-col min-w-0 overflow-hidden">
                 
                 <!-- Topbar Header -->
-                <header class="h-16 bg-white border-b border-slate-100 px-6 flex items-center justify-between flex-shrink-0 shadow-sm">
-                    <div class="flex items-center gap-4">
-                        <!-- Mobile toggle -->
-                        <button @click="sidebarOpen = !sidebarOpen" class="lg:hidden text-slate-500 hover:text-slate-700">
-                            <i class="fa-solid fa-bars text-xl"></i>
-                        </button>
-                        <h1 class="text-base font-extrabold text-slate-700">{{ __('messages.admin_control_panel') }}</h1>
-                    </div>
-
-                    <div class="flex items-center gap-4">
-                        <a href="{{ route('lang.switch', app()->getLocale() === 'en' ? 'ar' : 'en') }}" class="text-xs font-bold text-slate-500 hover:text-teal-600 transition flex items-center gap-1">
-                            <i class="fa-solid fa-language"></i> {{ app()->getLocale() === 'en' ? 'العربية' : 'English' }}
-                        </a>
-                        <span class="h-4 w-px bg-slate-200"></span>
-                        <a href="/" class="text-xs font-bold text-slate-500 hover:text-teal-600 transition flex items-center gap-1">
-                            <i class="fa-solid fa-globe"></i> {{ __('messages.view_site') }}
-                        </a>
-                        <span class="h-4 w-px bg-slate-200"></span>
-                        <!-- Logout form -->
-                        <form method="POST" action="{{ route('logout') }}">
-                            @csrf
-                            <button type="submit" class="text-xs font-bold text-slate-500 hover:text-rose-600 transition flex items-center gap-1">
-                                <i class="fa-solid fa-sign-out-alt"></i> {{ __('messages.logout') }}
-                            </button>
-                        </form>
-                    </div>
-                </header>
+                @include('partials.site-header', ['page' => 'admin'])
 
                 <!-- Page Content Slot -->
-                <main class="flex-1 overflow-y-auto p-6 md:p-10">
-                    {{ $slot }}
+                <main class="flex-1 overflow-y-auto p-6 md:p-10 flex flex-col">
+                    <div class="flex-grow">
+                        {{ $slot }}
+                    </div>
+                    @include('partials.site-footer')
                 </main>
 
             </div>

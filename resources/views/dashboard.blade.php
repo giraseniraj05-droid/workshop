@@ -151,7 +151,7 @@
                                                         @click="rating = i" 
                                                         @mouseenter="hover = i" 
                                                         @mouseleave="hover = 0"
-                                                        class="text-2xl focus:outline-none transition hover:scale-110">
+                                                        class="text-2xl focus:outline-none transition hover:scale-110 star-rating-btn">
                                                         <i class="fa-star" :class="i <= (hover || rating) ? 'fa-solid text-amber-400' : 'fa-regular text-slate-300'"></i>
                                                     </button>
                                                 </template>
@@ -164,7 +164,7 @@
                                                 class="w-full text-sm border border-slate-200 rounded-xl px-4 py-3 focus:outline-none focus:border-teal-500 focus:ring-1 focus:ring-teal-500 transition"></textarea>
                                         </div>
 
-                                        <button type="submit" class="px-5 py-2.5 bg-teal-600 hover:bg-teal-700 text-white font-bold rounded-xl text-xs transition shadow-sm hover:shadow">
+                                        <button type="submit" class="px-5 py-3 bg-teal-600 hover:bg-teal-700 text-white font-bold rounded-xl text-xs transition shadow-sm hover:shadow">
                                             {{ __('messages.submit_review') }}
                                         </button>
                                     </form>

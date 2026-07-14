@@ -1,6 +1,12 @@
+@import "./site-chrome.css";
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+[x-cloak] {
+    display: none !important;
+}
 
 :root {
   /* Brand color tokens - Royal Blue & Gold theme */

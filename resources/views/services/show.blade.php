@@ -44,35 +44,7 @@
     <body class="font-sans antialiased bg-slate-50 text-slate-800" x-data="{ activeForm: 'book' }">
         
         <!-- Header -->
-        <header class="bg-white border-b border-slate-100 sticky top-0 z-50 shadow-sm">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
-                <a href="/" class="flex items-center gap-2">
-                    <span class="text-2xl font-black bg-gradient-to-r from-teal-500 to-blue-600 bg-clip-text text-transparent">
-                        {{ __('messages.app_name') }}
-                    </span>
-                </a>
-                <nav class="flex items-center gap-4">
-                    <!-- Language switcher -->
-                    <a href="{{ route('lang.switch', app()->getLocale() === 'en' ? 'ar' : 'en') }}" class="px-3 py-2 text-sm font-semibold text-slate-500 hover:text-teal-600 transition flex items-center gap-1">
-                        <i class="fa-solid fa-language"></i> {{ app()->getLocale() === 'en' ? 'العربية' : 'English' }}
-                    </a>
-                    <span class="h-4 w-px bg-slate-200"></span>
-
-                    @auth
-                        <a href="{{ url('/dashboard') }}" class="px-4 py-2 text-sm font-semibold text-slate-700 hover:text-teal-600 transition">
-                            {{ __('messages.dashboard') }}
-                        </a>
-                    @else
-                        <a href="{{ route('login') }}" class="px-4 py-2 text-sm font-semibold text-slate-700 hover:text-teal-600 transition">
-                            {{ __('messages.login') }}
-                        </a>
-                    @endauth
-                    <a href="/" class="text-sm font-bold text-teal-600 hover:text-teal-700 flex items-center gap-1">
-                        <i class="fa-solid fa-arrow-left"></i> {{ __('messages.back_to_services') }}
-                    </a>
-                </nav>
-            </div>
-        </header>
+        @include('partials.site-header', ['page' => 'services'])
 
         <!-- Service Hero Section -->
         <section class="bg-slate-900 text-white py-16 relative overflow-hidden">
@@ -415,6 +387,8 @@
             </section>
 
         </main>
+
+        @include('partials.site-footer')
 
         <!-- Initialize Flatpickr -->
         <script>
