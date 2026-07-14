@@ -131,7 +131,6 @@
         </div>
     </section>
 
-    <!-- <x-site-footer /> -->
     @include('partials.site-footer')
 
 

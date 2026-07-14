@@ -511,7 +511,6 @@ __('Return to the services page anytime'),
                 </div>
             </main>
 
-            <!-- <x-site-footer /> -->
             @include('partials.site-footer')
 
         </div>
