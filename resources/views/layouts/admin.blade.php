@@ -42,23 +42,39 @@
         <!-- Tailwind & Vite -->
         @vite(['resources/css/app.css', 'resources/js/app.js'])
     </head>
-    <body class="font-sans antialiased bg-slate-50 text-slate-800" x-data="{ sidebarOpen: false }">
+    <body class="font-sans antialiased bg-slate-50 text-slate-800"
+          x-data="{ sidebarOpen: false }"
+          x-bind:class="{ 'overflow-hidden': sidebarOpen }">
         
         <div class="min-h-screen flex">
-            <!-- Sidebar Backdrop for mobile -->
-            <div x-show="sidebarOpen" x-transition.opacity @click="sidebarOpen = false" class="fixed inset-0 z-30 bg-slate-900/40 backdrop-blur-sm lg:hidden" x-cloak></div>
+            <!-- Mobile backdrop -->
+            <div x-show="sidebarOpen"
+                 x-cloak
+                 @click="sidebarOpen = false"
+                 class="fixed inset-0 z-40 bg-slate-950/60 lg:hidden"
+                 x-transition:enter="transition-opacity ease-linear duration-200"
+                 x-transition:enter-start="opacity-0"
+                 x-transition:enter-end="opacity-100"
+                 x-transition:leave="transition-opacity ease-linear duration-150"
+                 x-transition:leave-start="opacity-100"
+                 x-transition:leave-end="opacity-0"></div>
 
             <!-- Sidebar -->
-            <aside :class="sidebarOpen ? 'translate-x-0' : (app()->getLocale() === 'ar' ? 'translate-x-full' : '-translate-x-full')" 
-                   class="fixed inset-y-0 start-0 z-40 w-64 bg-gradient-to-b from-slate-950 via-slate-900 to-slate-950 text-slate-400 transform lg:translate-x-0 lg:static lg:inset-0 transition-transform duration-300 flex-shrink-0 flex flex-col border-e border-slate-800 shadow-2xl">
+            <aside :class="sidebarOpen ? 'translate-x-0' : '{{ app()->getLocale() === 'ar' ? 'translate-x-full' : '-translate-x-full' }}'" 
+                   class="fixed inset-y-0 start-0 z-50 w-64 bg-gradient-to-b from-slate-950 via-slate-900 to-slate-950 text-slate-400 transform lg:translate-x-0 lg:static lg:inset-0 transition-transform duration-300 flex-shrink-0 flex flex-col border-e border-slate-800 shadow-2xl">
                 
                 <!-- Sidebar Header/Logo -->
-                <div class="h-16 px-6 flex items-center border-b border-slate-800/80">
+                <div class="h-16 px-6 flex items-center justify-between border-b border-slate-800/80">
                     <a href="/" class="flex items-center gap-2">
                         <span class="text-xl font-black bg-gradient-to-r from-teal-400 to-blue-500 bg-clip-text text-transparent">
                             SERVICELY ADMIN
                         </span>
                     </a>
+                    <button @click="sidebarOpen = false" class="lg:hidden text-slate-400 hover:text-white p-2 rounded-lg hover:bg-slate-800/50 transition-colors" aria-label="Close sidebar">
+                        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+                        </svg>
+                    </button>
                 </div>
 
                 <!-- Navigation -->
@@ -130,8 +146,17 @@
                     <div class="flex-grow">
                         {{ $slot }}
                     </div>
-                    @include('partials.site-footer')
                 </main>
+
+                <!-- Admin Footer -->
+                <footer class="border-t border-slate-100 bg-white px-6 py-4 text-xs text-slate-500 flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between text-center sm:text-start">
+                    <span class="font-semibold tracking-wide text-slate-600">{{ __('messages.app_name') }} — {{ __('messages.admin_control_panel') }}</span>
+                    <div class="flex flex-col sm:flex-row items-center gap-1 sm:gap-4">
+                        <span><i class="fa-solid fa-phone text-slate-400 me-1"></i> {{ __('messages.footer_contact_phone') }}</span>
+                        <span><i class="fa-solid fa-envelope text-slate-400 me-1"></i> {{ __('messages.footer_contact_email') }}</span>
+                        <span>&copy; {{ date('Y') }} {{ __('messages.app_name') }}</span>
+                    </div>
+                </footer>
 
             </div>
 
