@@ -339,6 +339,8 @@ button:active,
         color .18s ease,
         border-color .18s ease,
         box-shadow .28s cubic-bezier(.22, 1, .36, 1);
+    border-radius: 28px;
+
 
     transform: translate3d(0, 0, 0);
 
@@ -355,6 +357,8 @@ button:active,
     background: #b45309 !important;
 
     border-color: #d97706 !important;
+    border-radius: 28px;
+
 
     box-shadow:
         0 12px 30px rgba(180, 83, 9, .20),
