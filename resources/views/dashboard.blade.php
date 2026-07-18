@@ -10,21 +10,21 @@
             
             <!-- Success Message -->
             @if(session('success'))
-                <div class="bg-teal-50 border border-teal-200 text-teal-800 rounded-2xl p-4 text-sm font-semibold flex items-start gap-2 shadow-sm">
+                <div class="bg-teal-50 border border-teal-200 text-teal-800 rounded-2xl p-4 text-sm font-semibold flex items-start gap-2 shadow-sm animate-slide-down-fade">
                     <i class="fa-solid fa-circle-check text-teal-600 mt-0.5 text-base"></i>
                     <span>{{ session('success') }}</span>
                 </div>
             @endif
 
             <!-- Banner Widget -->
-            <div class="bg-gradient-to-r from-teal-500 to-blue-600 rounded-3xl p-8 text-white shadow-xl relative overflow-hidden">
+            <div class="bg-gradient-to-r from-teal-500 to-blue-600 rounded-3xl p-8 text-white shadow-xl relative overflow-hidden animate-fade-in-up">
                 <div class="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(255,255,255,0.1),transparent_40%)]"></div>
                 <div class="relative z-10 max-w-xl">
                     <h3 class="text-2xl font-black mb-2">{{ __('messages.welcome_back', ['name' => Auth::user()->name]) }}</h3>
                     <p class="text-teal-50/90 text-sm leading-relaxed mb-6">
                         {{ __('messages.dashboard_desc') }}
                     </p>
-                    <a href="/" class="px-5 py-2.5 bg-white text-teal-700 font-bold rounded-lg hover:shadow-lg transition text-sm">
+                    <a href="/" class="inline-block px-5 py-2.5 bg-white text-teal-700 font-bold rounded-lg hover:shadow-lg hover:-translate-y-0.5 active:scale-[0.98] transition-all duration-200 text-sm">
                         {{ __('messages.book_new_service') }}
                     </a>
                 </div>
@@ -37,7 +37,7 @@
                 </h4>
 
                 @forelse($bookings as $booking)
-                    <div class="border border-slate-100 rounded-2xl p-6 mb-6 hover:shadow-md transition flex flex-col gap-6 last:mb-0">
+                    <div class="border border-slate-100 rounded-2xl p-6 mb-6 hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 flex flex-col gap-6 last:mb-0">
                         <div class="flex flex-col md:flex-row md:items-center justify-between gap-6">
                             <div class="space-y-3">
                                 <div class="flex items-center gap-3">
@@ -47,23 +47,23 @@
                                     
                                     <!-- Localized Status Badge -->
                                     @if($booking->status === 'pending')
-                                        <span class="px-3 py-1 bg-yellow-50 text-yellow-700 border border-yellow-200 rounded-full text-xs font-bold uppercase tracking-wider">
+                                        <span class="px-3 py-1 bg-yellow-50 text-yellow-700 border border-yellow-200 rounded-full text-xs font-bold uppercase tracking-wider animate-pop-in">
                                             {{ __('messages.pending') }}
                                         </span>
                                     @elseif($booking->status === 'accepted')
-                                        <span class="px-3 py-1 bg-blue-50 text-blue-700 border border-blue-200 rounded-full text-xs font-bold uppercase tracking-wider">
+                                        <span class="px-3 py-1 bg-blue-50 text-blue-700 border border-blue-200 rounded-full text-xs font-bold uppercase tracking-wider animate-pop-in">
                                             {{ __('messages.accepted') }}
                                         </span>
                                     @elseif($booking->status === 'completed')
-                                        <span class="px-3 py-1 bg-teal-50 text-teal-700 border border-teal-200 rounded-full text-xs font-bold uppercase tracking-wider">
+                                        <span class="px-3 py-1 bg-teal-50 text-teal-700 border border-teal-200 rounded-full text-xs font-bold uppercase tracking-wider animate-pop-in">
                                             {{ __('messages.completed') }}
                                         </span>
                                     @elseif($booking->status === 'rejected')
-                                        <span class="px-3 py-1 bg-rose-50 text-rose-700 border border-rose-200 rounded-full text-xs font-bold uppercase tracking-wider">
+                                        <span class="px-3 py-1 bg-rose-50 text-rose-700 border border-rose-200 rounded-full text-xs font-bold uppercase tracking-wider animate-pop-in">
                                             {{ __('messages.rejected') }}
                                         </span>
                                     @else
-                                        <span class="px-3 py-1 bg-slate-50 text-slate-700 border border-slate-200 rounded-full text-xs font-bold uppercase tracking-wider">
+                                        <span class="px-3 py-1 bg-slate-50 text-slate-700 border border-slate-200 rounded-full text-xs font-bold uppercase tracking-wider animate-pop-in">
                                             {{ __('messages.cancelled') }}
                                         </span>
                                     @endif

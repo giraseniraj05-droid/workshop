@@ -260,7 +260,7 @@ return [
 
     // Footer Contact Details
     'footer_contact_name' => 'ريحان الأفراح',
-    'footer_contact_phone' => '+971 50 123 4567',
-    'footer_contact_email' => 'rajputashish7804@gmail.com',
+    'footer_contact_phone' => '+971 55 441 4740',
+    'footer_contact_email' => 'ilyaskhokarrajas2019@gmail.com',
 ];
 

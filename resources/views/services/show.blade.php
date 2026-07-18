@@ -96,7 +96,7 @@
 
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                     @forelse($workers as $worker)
-                        <div class="bg-white rounded-2xl p-6 border border-slate-100 shadow-sm flex flex-col hover:border-teal-200 transition">
+                        <div class="bg-white rounded-2xl p-6 border border-slate-100 shadow-sm flex flex-col hover:border-teal-200 hover:-translate-y-0.5 hover:shadow-md transition-all duration-200 card-animated-border">
                             <!-- Photo and Name -->
                             <div class="flex items-center gap-4 mb-4">
                                 <div class="h-16 w-16 rounded-full bg-teal-50 border border-teal-100 flex items-center justify-center text-teal-600 font-bold overflow-hidden shadow-inner flex-shrink-0">
@@ -177,7 +177,7 @@
                     </h2>
 
                     @forelse($reviews as $review)
-                        <div class="bg-white rounded-2xl p-6 border border-slate-100 shadow-sm mb-6 last:mb-0 hover:border-teal-200 transition">
+                        <div class="bg-white rounded-2xl p-6 border border-slate-100 shadow-sm mb-6 last:mb-0 hover:border-teal-200 hover:-translate-y-0.5 hover:shadow-md transition-all duration-200 card-animated-border animate-fade-in-up" style="animation-delay: {{ $loop->index * 60 }}ms;">
                             <div class="flex items-center justify-between mb-4">
                                 <div class="flex items-center gap-3">
                                     <div class="h-10 w-10 rounded-full bg-teal-50 border border-teal-100 flex items-center justify-center text-teal-600 font-bold overflow-hidden shadow-inner flex-shrink-0">
@@ -301,7 +301,7 @@
                                                   class="w-full rounded-xl border-slate-200 focus:border-teal-500 focus:ring focus:ring-teal-200 text-slate-800 text-sm font-medium"></textarea>
                                     </div>
 
-                                    <button type="submit" class="w-full py-3.5 bg-gradient-to-r from-teal-500 to-blue-600 hover:from-teal-600 hover:to-blue-700 text-white font-bold rounded-xl transition shadow-md">
+                                    <button type="submit" class="w-full py-3.5 bg-gradient-to-r from-teal-500 to-blue-600 hover:from-teal-600 hover:to-blue-700 active:scale-[0.98] text-white font-bold rounded-xl transition duration-200 shadow-md">
                                         {{ __('messages.request_booking') }}
                                     </button>
 
@@ -376,7 +376,7 @@
                                     @enderror
                                 </div>
 
-                                <button type="submit" class="w-full py-3.5 bg-slate-800 hover:bg-slate-900 text-white font-bold rounded-xl transition shadow-md">
+                                <button type="submit" class="w-full py-3.5 bg-slate-800 hover:bg-slate-900 active:scale-[0.98] text-white font-bold rounded-xl transition duration-200 shadow-md">
                                     {{ __('messages.submit_enquiry') }}
                                 </button>
                             </form>

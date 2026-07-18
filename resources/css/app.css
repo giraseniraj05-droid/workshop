@@ -77,8 +77,8 @@ button:hover, .btn-hover-effect:hover {
     filter: brightness(1.05);
 }
 
-button:active, .btn-hover-effect:active {
-    transform: translateY(0);
+button:active, .btn-hover-effect:active, .btn-active-press:active {
+    transform: translateY(0) scale(0.98);
 }
 
 .auth-gradient-button {
@@ -88,4 +88,103 @@ button:active, .btn-hover-effect:active {
 
 .auth-gradient-button:hover {
     background-image: var(--hover-gradient);
+}
+
+/* Running border effect for cards */
+@keyframes border-flow {
+    0% { background-position: 0% 50%; }
+    100% { background-position: 200% 50%; }
+}
+
+.card-animated-border {
+    position: relative;
+    border-radius: inherit;
+}
+
+.card-animated-border::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    padding: 1.5px;
+    background: linear-gradient(90deg, var(--primary), var(--accent), var(--secondary), var(--primary));
+    background-size: 200% 100%;
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    opacity: 0;
+    transition: opacity 300ms ease-out;
+    animation: border-flow 6s linear infinite;
+    pointer-events: none;
+}
+
+.card-animated-border:hover::before {
+    opacity: 1;
+}
+
+/* Keyframe entrance animations */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideDownFade {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes popIn {
+    from {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.animate-fade-in-up {
+    animation: fadeInUp 400ms ease-out forwards;
+}
+
+.animate-slide-down-fade {
+    animation: slideDownFade 300ms ease-out forwards;
+}
+
+.animate-pop-in {
+    animation: popIn 200ms ease-out forwards;
+}
+
+/* Star rating micro-interactions */
+.star-rating-btn {
+    transition: transform 150ms ease-out, color 150ms ease-out;
+}
+.star-rating-btn:hover {
+    transform: scale(1.15);
+}
+.star-rating-btn:active {
+    transform: scale(1.25);
+}
+
+/* Global prefers-reduced-motion constraint */
+@media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
 }
