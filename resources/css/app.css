@@ -427,6 +427,8 @@ button:active,
 .card-color-transform:hover img {
     transform: scale3d(1.04, 1.04, 1);
     border-radius: 28px;
+    overflow: hidden;
+
 
 }
 
