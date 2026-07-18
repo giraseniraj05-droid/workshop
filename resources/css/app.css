@@ -599,88 +599,88 @@ button:active,
 }
 
 /* =====================================================
-   Premium Always-Visible Running Border
-   Uses transform:rotate on ::before to spin the
-   conic-gradient. ::after is the inner card mask.
+   ANIMATED RUNNING BORDER — @property approach
+   Animates the conic-gradient angle directly.
+   Works inside overflow:hidden. No layout shift.
+   Compatible: Chrome 85+, Edge 85+, Safari 15.4+, FF 128+
    ===================================================== */
 
-/* Card base border + shadow (always visible, no hover needed) */
+/* Register the animatable custom property for the border angle */
+@property --border-angle {
+    syntax: "<angle>";
+    inherits: false;
+    initial-value: 0deg;
+}
+
+/* Animate the angle 0 → 360deg */
+@keyframes cardBorderSpin {
+    to { --border-angle: 360deg; }
+}
+
+/* Base card ring styling */
 .running-border-active {
     position: relative;
     border-radius: 28px !important;
-    overflow: hidden;
-    /* Subtle resting border glow + shadow */
+    /* Visible rest-state border glow + depth shadow */
     box-shadow:
-        0 0 0 1.5px rgba(59, 130, 246, 0.25),
-        0 4px 20px rgba(59, 130, 246, 0.08),
+        0 0 0 1.5px rgba(99, 130, 246, 0.3),
+        0 4px 16px rgba(30, 64, 175, 0.08),
         0 1px 4px rgba(0, 0, 0, 0.06);
-    transition:
-        box-shadow 350ms cubic-bezier(0.16, 1, 0.3, 1);
+    transition: box-shadow 350ms cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-/* Spinning conic-gradient layer behind the card */
+/* Animated conic-gradient border ring (inside card boundary) */
 .running-border-active::before {
     content: "";
     position: absolute;
-    inset: -3px;
-    z-index: 0;
-    border-radius: 32px;
+    inset: 0;
+    border-radius: inherit;
+    padding: 2px;           /* Border thickness = 2px */
     background: conic-gradient(
-        from 0deg,
-        #3b82f6   0deg,
-        #4f46e5   72deg,
-        #d97706   144deg,
-        #ec4899   216deg,
-        #06b6d4   288deg,
-        #3b82f6   360deg
+        from var(--border-angle),
+        #3b82f6 0%,
+        #4f46e5 20%,
+        #d97706 40%,
+        #ec4899 60%,
+        #06b6d4 80%,
+        #3b82f6 100%
     );
+    /* Mask shows only the 2px ring, not the fill */
+    -webkit-mask:
+        linear-gradient(#fff 0 0) content-box,
+        linear-gradient(#fff 0 0);
+    -webkit-mask-composite: destination-out;
+    mask:
+        linear-gradient(#fff 0 0) content-box,
+        linear-gradient(#fff 0 0);
+    mask-composite: exclude;
+    pointer-events: none;
+    z-index: 0;
+    /* Always spinning, always visible */
     animation: cardBorderSpin 4s linear infinite;
-    opacity: 0.55;
+    opacity: 0.7;
     transition: opacity 350ms ease;
 }
 
-/* Inner mask — hides the conic fill, keeps only the glowing ring */
-.running-border-active::after {
-    content: "";
-    position: absolute;
-    inset: 2px;
-    z-index: 1;
-    border-radius: 26px;
-    background: #ffffff;
-    transition: background 220ms ease;
-    pointer-events: none;
-}
-
-/* On hover the card turns #b45309 — ::after must match */
-.running-border-active:hover::after,
-.smooth-card-motion:hover.running-border-active::after,
-.card-color-transform:hover.running-border-active::after {
-    background: #b45309;
-}
-
-/* Brighter border + bigger amber shadow on hover */
+/* Brighter border + deep amber shadow on hover */
 .running-border-active:hover {
     box-shadow:
-        0 0 0 2px rgba(180, 83, 9, 0.55),
-        0 16px 40px rgba(180, 83, 9, 0.22),
-        0 6px 16px rgba(180, 83, 9, 0.14);
+        0 0 0 2px rgba(180, 83, 9, 0.5),
+        0 18px 45px rgba(180, 83, 9, 0.25),
+        0 6px 18px rgba(180, 83, 9, 0.15);
 }
 
 .running-border-active:hover::before {
     opacity: 1;
-    animation-duration: 2.5s;
+    animation-duration: 2s;
 }
 
-/* All card content must sit above the pseudo-elements */
+/* All card content sits above the border ring */
 .running-border-active > * {
     position: relative;
     z-index: 2;
 }
 
-@keyframes cardBorderSpin {
-    from { transform: rotate(0deg); }
-    to   { transform: rotate(360deg); }
-}
 
 /* Animated Gradient Drift */
 @keyframes gradient-drift {
