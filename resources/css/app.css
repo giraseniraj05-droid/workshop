@@ -334,31 +334,33 @@ button:active,
 .card-color-transform {
 
     transition:
-        transform .32s cubic-bezier(.22, 1, .36, 1),
+        transform .28s cubic-bezier(.22, 1, .36, 1),
         background-color .18s ease,
         color .18s ease,
         border-color .18s ease,
-        box-shadow .32s cubic-bezier(.22, 1, .36, 1);
-
-    transform: translateZ(0);
+        box-shadow .28s cubic-bezier(.22, 1, .36, 1);
 
     transform: translate3d(0, 0, 0);
+
     backface-visibility: hidden;
-
-    border-radius: 28px;
-
-    overflow: hidden;
 }
 
 .smooth-card-motion:hover,
 .hover-card-lift:hover,
 .card-premium:hover,
 .card-color-transform:hover {
-    transition-delay: 0ms !important;
-    transform: translate3d(0, -4px, 0) scale3d(1.025, 1.025, 1);
-    background-color: #b45309 !important;
+
+    transform: translate3d(0, -3px, 0) scale3d(1.02, 1.02, 1);
+
+    background: #b45309 !important;
+
     border-color: #d97706 !important;
-    box-shadow: 0 22px 45px -12px rgba(180, 83, 9, 0.35), 0 0 0 1px rgba(217, 119, 6, 0.3);
+
+    box-shadow:
+        0 12px 30px rgba(180, 83, 9, .20),
+        0 4px 12px rgba(180, 83, 9, .10);
+
+    transition-delay: 0s;
 }
 
 /* Synchronized 800ms Child Contrast Transition (No White Flash) */
