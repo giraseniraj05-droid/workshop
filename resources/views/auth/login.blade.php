@@ -73,24 +73,31 @@
                 box-shadow: 0 24px 60px rgba(15, 23, 42, 0.12);
                 transition: transform 450ms cubic-bezier(0.16, 1, 0.3, 1),
                             box-shadow 450ms cubic-bezier(0.16, 1, 0.3, 1),
+                            background 450ms cubic-bezier(0.16, 1, 0.3, 1),
                             border-color 450ms cubic-bezier(0.16, 1, 0.3, 1);
-                will-change: transform, box-shadow;
-                transform: translateZ(0);
-                backface-visibility: hidden;
+                will-change: transform, box-shadow, background;
+                transform: translate3d(0, 0, 0);
+                -webkit-font-smoothing: antialiased;
+                text-rendering: optimizeLegibility;
             }
 
             .hero-panel:hover,
             .form-panel:hover {
                 transition-delay: 0ms !important;
-                transform: scale3d(1.015, 1.015, 1) translate3d(0, -2px, 0);
-                box-shadow: 0 32px 70px -12px rgba(15, 23, 42, 0.22), 0 0 0 1px rgba(59, 130, 246, 0.25);
+                transform: translate3d(0, -5px, 0);
+                box-shadow: 0 32px 75px -12px rgba(15, 23, 42, 0.35);
             }
 
             .hero-panel {
                 position: relative;
                 padding: 56px;
                 color: white;
-                background: linear-gradient(135deg, #1d4ed8 0%, #f97316 52%, #4338ca 100%);
+                background: linear-gradient(135deg, #1d4ed8 0%, #ea580c 52%, #4338ca 100%);
+                transition: background 450ms cubic-bezier(0.16, 1, 0.3, 1);
+            }
+
+            .hero-panel:hover {
+                background: linear-gradient(135deg, #b45309 0%, #78350f 50%, #451a03 100%) !important;
             }
 
             .hero-panel::before,
@@ -219,9 +226,67 @@
             .form-panel {
                 display: flex;
                 flex-direction: column;
-                background: rgba(255, 255, 255, 0.88);
+                background: rgba(255, 255, 255, 0.92);
                 backdrop-filter: blur(16px);
                 border: 1px solid var(--login-border);
+                transition: background 450ms cubic-bezier(0.16, 1, 0.3, 1);
+            }
+
+            .form-panel:hover {
+                background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #1e3a8a 100%) !important;
+            }
+
+            .form-header,
+            .form-kicker,
+            .form-title,
+            .form-subtitle,
+            .field-label,
+            .field-help,
+            .checkbox-text,
+            .footer-text,
+            .footer-link,
+            .control {
+                transition: color 450ms cubic-bezier(0.16, 1, 0.3, 1),
+                            background-color 450ms cubic-bezier(0.16, 1, 0.3, 1),
+                            border-color 450ms cubic-bezier(0.16, 1, 0.3, 1);
+            }
+
+            .form-panel:hover .form-header {
+                background: transparent !important;
+                border-bottom-color: rgba(255, 255, 255, 0.15) !important;
+            }
+            .form-panel:hover .form-kicker {
+                background: rgba(255, 255, 255, 0.18) !important;
+                color: #ffffff !important;
+            }
+            .form-panel:hover .form-title {
+                color: #ffffff !important;
+            }
+            .form-panel:hover .form-subtitle {
+                color: rgba(255, 255, 255, 0.82) !important;
+            }
+            .form-panel:hover .field-label {
+                color: #ffffff !important;
+            }
+            .form-panel:hover .field-help {
+                color: #93c5fd !important;
+            }
+            .form-panel:hover .checkbox-text {
+                color: rgba(255, 255, 255, 0.9) !important;
+            }
+            .form-panel:hover .footer-text {
+                color: rgba(255, 255, 255, 0.8) !important;
+            }
+            .form-panel:hover .footer-link {
+                color: #60a5fa !important;
+            }
+            .form-panel:hover .control {
+                background: rgba(255, 255, 255, 0.12) !important;
+                border-color: rgba(255, 255, 255, 0.25) !important;
+                color: #ffffff !important;
+            }
+            .form-panel:hover .control::placeholder {
+                color: rgba(255, 255, 255, 0.5) !important;
             }
 
             .form-header {
@@ -453,7 +518,7 @@
 
             <main class="login-main">
                 <div class="login-grid animate-page-entrance">
-                    <section class="hero-panel" aria-label="{{ __('messages.hero_title') }}">
+                    <section class="hero-panel running-border-active" aria-label="{{ __('messages.hero_title') }}">
                         <span class="hero-badge">
                             <i class="fa-solid fa-bolt"></i>
                             {{ __('messages.hero_badge') }}
@@ -480,7 +545,7 @@
                         </div>
                     </section>
 
-                    <section class="form-panel" aria-label="{{ __('Sign In') }}">
+                    <section class="form-panel running-border-active" aria-label="{{ __('Sign In') }}">
                         <div class="form-header">
                             <span class="form-kicker">{{ __('messages.login') }}</span>
                             <h2 class="form-title">{{ __('Welcome Back') }}</h2>
