@@ -80,7 +80,7 @@
                     3 => 'card-border-sunset',
                 };
             @endphp
-            <div class="bg-white rounded-3xl shadow-sm border border-slate-100 overflow-hidden transition-all duration-300 flex flex-col group {{ $borderPreset }} card-sheen glow-shadow-primary card-color-transform running-border-active scroll-reveal" style="transition-delay: {{ $loop->index * 70 }}ms;">
+            <div class="bg-white rounded-3xl shadow-sm border border-slate-100 flex flex-col group {{ $borderPreset }} smooth-card-motion running-border-active scroll-reveal" style="transition-delay: {{ $loop->index * 70 }}ms;">
 
                 <!-- Hero Image -->
                 <div class="h-48 overflow-hidden bg-slate-100 relative">
@@ -90,7 +90,7 @@
                         class="w-full h-full object-cover group-hover:scale-105 transition-all duration-500" />
 
                     <!-- Icon badge (logical positioning start-4) -->
-                    <div class="absolute bottom-4 start-4 h-12 w-12 rounded-xl bg-white shadow-md flex items-center justify-center text-teal-600">
+                    <div class="absolute bottom-4 start-4 h-12 w-12 rounded-xl bg-white shadow-md flex items-center justify-center text-teal-600 service-icon-badge">
                         @if($service->icon === 'sparkles')
                         <i class="fa-solid fa-wand-magic-sparkles text-xl"></i>
                         @elseif($service->icon === 'grid')

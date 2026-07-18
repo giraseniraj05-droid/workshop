@@ -51,11 +51,10 @@ html {
     scroll-behavior: smooth;
 }
 
-/* Smooth transitions (0.3s - 0.4s) on interactive elements */
+/* Smooth transitions on interactive elements */
 a, button, select, input, textarea, tr, .transition {
     transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter;
-    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-    transition-duration: 350ms !important;
+    transition-timing-function: cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 /* Complementary colored shadows */
@@ -285,62 +284,83 @@ button:active, .btn-hover-effect:active, .btn-active-press:active {
     transform: scale(1.35);
 }
 
-/* Shared Card Mechanics - Smooth Zoom & Gradual Shadow */
+/* Senior Motion Architecture - Ultra-Smooth GPU 3D Composited Cards */
+.smooth-card-motion,
 .hover-card-lift,
-.card-premium {
-    transition: transform 400ms cubic-bezier(0.16, 1, 0.3, 1),
-                box-shadow 400ms cubic-bezier(0.16, 1, 0.3, 1),
-                border-color 400ms cubic-bezier(0.16, 1, 0.3, 1),
-                background-color 400ms cubic-bezier(0.16, 1, 0.3, 1);
-    will-change: transform, box-shadow;
-    transform: translateZ(0);
+.card-premium,
+.card-color-transform {
+    transition: transform 300ms cubic-bezier(0.22, 1, 0.36, 1),
+                background-color 300ms cubic-bezier(0.22, 1, 0.36, 1),
+                box-shadow 300ms cubic-bezier(0.22, 1, 0.36, 1),
+                border-color 300ms cubic-bezier(0.22, 1, 0.36, 1);
+    will-change: transform, background-color, box-shadow;
+    transform: scale3d(1, 1, 1) translate3d(0, 0, 0);
     backface-visibility: hidden;
     border-radius: 28px !important;
-}
-.hover-card-lift:hover,
-.card-premium:hover {
-    transform: scale(1.03) translateY(-2px);
-    box-shadow: 0 20px 40px -12px rgba(15, 23, 42, 0.14), 0 0 0 1px rgba(59, 130, 246, 0.25);
-    border-color: rgba(59, 130, 246, 0.35);
-}
-.hover-card-lift img,
-.card-premium img {
-    transition: transform 500ms cubic-bezier(0.16, 1, 0.3, 1);
-    will-change: transform;
-}
-.hover-card-lift:hover img,
-.card-premium:hover img {
-    transform: scale(1.05);
+    overflow: hidden;
 }
 
-/* #b45309 Hover Transformation & Auto White Text Contrast Engine */
-.card-color-transform {
-    transition: background-color 450ms cubic-bezier(0.16, 1, 0.3, 1),
-                border-color 450ms cubic-bezier(0.16, 1, 0.3, 1),
-                box-shadow 450ms cubic-bezier(0.16, 1, 0.3, 1),
-                transform 450ms cubic-bezier(0.16, 1, 0.3, 1);
-    border-radius: 28px !important;
-    overflow: hidden;
-    will-change: transform, box-shadow, background-color;
-}
+.smooth-card-motion:hover,
+.hover-card-lift:hover,
+.card-premium:hover,
 .card-color-transform:hover {
+    transform: scale3d(1.025, 1.025, 1) translate3d(0, -3px, 0);
     background-color: #b45309 !important;
     border-color: #d97706 !important;
-    box-shadow: 0 24px 50px -10px rgba(180, 83, 9, 0.38), 0 0 0 1px rgba(217, 119, 6, 0.4) !important;
+    box-shadow: 0 20px 45px -10px rgba(180, 83, 9, 0.35), 0 0 0 1px rgba(217, 119, 6, 0.3);
 }
-.card-color-transform:hover h1,
-.card-color-transform:hover h2,
-.card-color-transform:hover h3,
-.card-color-transform:hover h4,
-.card-color-transform:hover h5,
-.card-color-transform:hover h6,
-.card-color-transform:hover p,
-.card-color-transform:hover span:not(.no-text-contrast),
-.card-color-transform:hover i:not(.no-text-contrast),
-.card-color-transform:hover label,
-.card-color-transform:hover div:not(.no-text-contrast) > span {
+
+/* Synchronized 300ms Child Contrast Transition */
+.smooth-card-motion h1, .smooth-card-motion h2, .smooth-card-motion h3,
+.smooth-card-motion h4, .smooth-card-motion h5, .smooth-card-motion h6,
+.smooth-card-motion p, .smooth-card-motion span, .smooth-card-motion i,
+.smooth-card-motion label,
+.card-color-transform h1, .card-color-transform h2, .card-color-transform h3,
+.card-color-transform h4, .card-color-transform h5, .card-color-transform h6,
+.card-color-transform p, .card-color-transform span, .card-color-transform i,
+.card-color-transform label {
+    transition: color 300ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.smooth-card-motion:hover h1, .smooth-card-motion:hover h2, .smooth-card-motion:hover h3,
+.smooth-card-motion:hover h4, .smooth-card-motion:hover h5, .smooth-card-motion:hover h6,
+.smooth-card-motion:hover p, .smooth-card-motion:hover span:not(.service-icon-badge),
+.smooth-card-motion:hover i:not(.service-icon-badge-i), .smooth-card-motion:hover label,
+.card-color-transform:hover h1, .card-color-transform:hover h2, .card-color-transform:hover h3,
+.card-color-transform:hover h4, .card-color-transform:hover h5, .card-color-transform:hover h6,
+.card-color-transform:hover p, .card-color-transform:hover span:not(.service-icon-badge),
+.card-color-transform:hover i:not(.service-icon-badge-i), .card-color-transform:hover label {
     color: #ffffff !important;
-    transition: color 450ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Service Card Image & Icon Badge Hover Contrast */
+.smooth-card-motion img,
+.card-color-transform img {
+    transition: transform 400ms cubic-bezier(0.22, 1, 0.36, 1);
+    will-change: transform;
+}
+.smooth-card-motion:hover img,
+.card-color-transform:hover img {
+    transform: scale3d(1.05, 1.05, 1);
+}
+
+.service-icon-badge {
+    transition: background-color 300ms cubic-bezier(0.22, 1, 0.36, 1),
+                color 300ms cubic-bezier(0.22, 1, 0.36, 1),
+                transform 300ms cubic-bezier(0.22, 1, 0.36, 1),
+                box-shadow 300ms cubic-bezier(0.22, 1, 0.36, 1);
+    will-change: transform, background-color;
+}
+.smooth-card-motion:hover .service-icon-badge,
+.card-color-transform:hover .service-icon-badge {
+    background-color: #ffffff !important;
+    color: #b45309 !important;
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.25) !important;
+    transform: scale3d(1.1, 1.1, 1);
+}
+.smooth-card-motion:hover .service-icon-badge i,
+.card-color-transform:hover .service-icon-badge i {
+    color: #b45309 !important;
 }
 
 /* Continuous Traveling Running Border */
