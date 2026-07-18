@@ -243,19 +243,19 @@
 
                 <div class="space-y-6">
                     @forelse($reviews as $review)
-                        <div class="bg-slate-50 rounded-2xl p-6 border border-slate-100 flex flex-col gap-3">
-                            <div class="flex items-center justify-between">
-                                <div class="flex items-center gap-3">
-                                    <div class="h-10 w-10 rounded-full bg-blue-50 text-blue-600 flex items-center justify-center font-bold overflow-hidden flex-shrink-0">
+                        <div class="bg-slate-50 rounded-2xl p-4 sm:p-6 border border-slate-100 flex flex-col gap-3">
+                            <div class="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-3">
+                                <div class="flex items-center gap-3 min-w-0">
+                                    <div class="h-10 w-10 rounded-full bg-blue-50 text-blue-600 flex items-center justify-center font-bold overflow-hidden flex-shrink-0 text-sm">
                                         {{ substr($review->customer->name ?? 'User', 0, 2) }}
                                     </div>
-                                    <div>
-                                        <h4 class="font-bold text-slate-800 text-sm">{{ $review->customer->name ?? 'Deleted User' }}</h4>
-                                        <span class="text-xs text-slate-500">Service: <strong>{{ $review->service->name ?? 'Deleted Service' }}</strong></span>
+                                    <div class="min-w-0">
+                                        <h4 class="font-bold text-slate-800 text-sm truncate">{{ $review->customer->name ?? 'Deleted User' }}</h4>
+                                        <span class="text-xs text-slate-500 block truncate">Service: <strong>{{ $review->service->name ?? 'Deleted Service' }}</strong></span>
                                     </div>
                                 </div>
-                                <div class="flex flex-col items-end gap-1">
-                                    <div class="flex items-center gap-0.5 text-amber-400">
+                                <div class="flex sm:flex-col items-center sm:items-end gap-2 sm:gap-1 flex-shrink-0">
+                                    <div class="star-rating-row text-amber-400">
                                         @for($i = 1; $i <= 5; $i++)
                                             @if($i <= $review->rating)
                                                 <i class="fa-solid fa-star text-xs"></i>
@@ -264,13 +264,13 @@
                                             @endif
                                         @endfor
                                     </div>
-                                    <span class="text-[9px] font-bold text-slate-400 uppercase tracking-wider">
+                                    <span class="text-[9px] font-bold text-slate-400 uppercase tracking-wider whitespace-nowrap">
                                         {{ $review->created_at->format('Y-m-d') }}
                                     </span>
                                 </div>
                             </div>
                             @if($review->comment)
-                                <p class="text-slate-650 text-sm italic bg-white p-3 rounded-xl border border-slate-50">"{{ $review->comment }}"</p>
+                                <p class="text-slate-650 text-sm italic bg-white p-3 rounded-xl border border-slate-50 break-words">"{{ $review->comment }}"</p>
                             @endif
                         </div>
                     @empty

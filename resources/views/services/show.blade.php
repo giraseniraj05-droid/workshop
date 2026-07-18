@@ -185,7 +185,7 @@
                                     </div>
                                     <div>
                                         <h4 class="font-extrabold text-slate-900 text-sm">{{ $review->customer->name ?? 'Deleted User' }}</h4>
-                                        <div class="flex items-center gap-0.5 mt-0.5">
+                                        <div class="star-rating-row mt-0.5">
                                             @for($i = 1; $i <= 5; $i++)
                                                 @if($i <= $review->rating)
                                                     <i class="fa-solid fa-star text-amber-400 text-xs"></i>

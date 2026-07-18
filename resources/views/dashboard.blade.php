@@ -174,7 +174,7 @@
                                         @csrf
                                         <div class="flex flex-col gap-2">
                                             <span class="text-xs font-extrabold uppercase tracking-wider text-slate-500">{{ __('messages.leave_review') }}</span>
-                                            <div class="flex items-center gap-1.5">
+                                            <div class="star-rating-row">
                                                 <template x-for="i in 5">
                                                     <button type="button" 
                                                         @click="rating = i" 
@@ -199,8 +199,8 @@
                                     </form>
                                 @else
                                     <div class="bg-slate-50 rounded-2xl p-4 border border-slate-100 flex flex-col gap-2">
-                                        <div class="flex items-center justify-between">
-                                            <div class="flex items-center gap-1">
+                                        <div class="flex items-center justify-between gap-2 flex-wrap">
+                                            <div class="star-rating-row">
                                                 @for($i = 1; $i <= 5; $i++)
                                                     @if($i <= $booking->feedback->rating)
                                                         <i class="fa-solid fa-star text-amber-400 text-sm"></i>
@@ -209,7 +209,7 @@
                                                     @endif
                                                 @endfor
                                             </div>
-                                            <span class="text-[10px] font-bold text-slate-400 uppercase tracking-wider">
+                                            <span class="text-[10px] font-bold text-slate-400 uppercase tracking-wider flex-shrink-0">
                                                 {{ $booking->feedback->created_at->translatedFormat('d M Y') }}
                                             </span>
                                         </div>
