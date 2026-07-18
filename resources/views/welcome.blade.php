@@ -90,7 +90,7 @@
                         class="w-full h-full object-cover group-hover:scale-105 transition-all duration-500" />
 
                     <!-- Icon badge (logical positioning start-4) -->
-                    <div class="absolute bottom-4 start-4 h-12 w-12 rounded-xl bg-white shadow-md flex items-center justify-center text-teal-600 service-icon-badge">
+                    <div class="absolute bottom-4 start-4 h-12 w-12 rounded-2xl bg-gradient-to-br from-white to-amber-50 text-amber-700 shadow-md border border-amber-100/80 flex items-center justify-center service-icon-badge">
                         @if($service->icon === 'sparkles')
                         <i class="fa-solid fa-wand-magic-sparkles text-xl"></i>
                         @elseif($service->icon === 'grid')
@@ -113,7 +113,7 @@
 
                 <!-- Card Body -->
                 <div class="p-6 flex-1 flex flex-col">
-                    <h3 class="font-bold text-lg text-slate-900 group-hover:text-teal-600 transition mb-2">
+                    <h3 class="font-bold text-lg text-slate-900 mb-2">
                         {{ $service->name }}
                     </h3>
                     <p class="text-slate-500 text-sm line-clamp-3 mb-6">
