@@ -18,19 +18,19 @@
 
         @if($page === 'admin')
             <!-- Topbar cluster (language switch / View Site / Logout) -->
-            <div class="flex items-center gap-2 sm:gap-4">
-                <a href="{{ route('lang.switch', app()->getLocale() === 'en' ? 'ar' : 'en') }}" class="text-xs font-bold text-slate-500 hover:text-teal-600 transition flex items-center gap-1">
-                    <i class="fa-solid fa-language"></i> <span class="hidden sm:inline">{{ app()->getLocale() === 'en' ? 'العربية' : 'English' }}</span>
+            <div class="flex flex-col sm:flex-row items-end sm:items-center gap-2 sm:gap-4">
+                <a href="{{ route('lang.switch', app()->getLocale() === 'en' ? 'ar' : 'en') }}" class="text-sm font-bold text-slate-500 hover:text-teal-600 transition flex items-center gap-2 bg-slate-100 sm:bg-transparent px-3 py-1.5 sm:px-0 sm:py-0 rounded-lg sm:rounded-none">
+                    <i class="fa-solid fa-language text-lg sm:text-base"></i> <span class="inline">{{ app()->getLocale() === 'en' ? 'العربية' : 'English' }}</span>
                 </a>
                 <span class="h-4 w-px bg-slate-200 hidden sm:block"></span>
-                <a href="/" class="text-xs font-bold text-slate-500 hover:text-teal-600 transition flex items-center gap-1">
-                    <i class="fa-solid fa-globe"></i> <span class="hidden sm:inline">{{ __('messages.view_site') }}</span>
+                <a href="/" class="text-sm font-bold text-slate-500 hover:text-teal-600 transition flex items-center gap-2 bg-slate-100 sm:bg-transparent px-3 py-1.5 sm:px-0 sm:py-0 rounded-lg sm:rounded-none">
+                    <i class="fa-solid fa-globe text-lg sm:text-base"></i> <span class="inline">{{ __('messages.view_site') }}</span>
                 </a>
                 <span class="h-4 w-px bg-slate-200 hidden sm:block"></span>
-                <form method="POST" action="{{ route('logout') }}" class="inline-block m-0 p-0">
+                <form method="POST" action="{{ route('logout') }}" class="m-0 p-0">
                     @csrf
-                    <button type="submit" class="text-xs font-bold text-slate-500 hover:text-rose-600 transition flex items-center gap-1">
-                        <i class="fa-solid fa-sign-out-alt"></i> <span class="hidden sm:inline">{{ __('messages.logout') }}</span>
+                    <button type="submit" class="text-sm font-bold text-slate-500 hover:text-rose-600 transition flex items-center gap-2 bg-slate-100 sm:bg-transparent px-3 py-1.5 sm:px-0 sm:py-0 rounded-lg sm:rounded-none">
+                        <i class="fa-solid fa-sign-out-alt text-lg sm:text-base"></i> <span class="inline">{{ __('messages.logout') }}</span>
                     </button>
                 </form>
             </div>

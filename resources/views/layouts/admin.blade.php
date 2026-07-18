@@ -51,7 +51,7 @@
             <div x-show="sidebarOpen"
                  x-cloak
                  @click="sidebarOpen = false"
-                 class="fixed inset-0 z-40 bg-slate-950/60 lg:hidden"
+                 class="fixed inset-0 z-[60] bg-slate-950/60 lg:hidden"
                  x-transition:enter="transition-opacity ease-linear duration-200"
                  x-transition:enter-start="opacity-0"
                  x-transition:enter-end="opacity-100"
@@ -61,7 +61,7 @@
 
             <!-- Sidebar -->
             <aside :class="sidebarOpen ? 'translate-x-0' : '{{ app()->getLocale() === 'ar' ? 'translate-x-full' : '-translate-x-full' }}'" 
-                   class="fixed inset-y-0 start-0 z-50 w-64 bg-gradient-to-b from-slate-950 via-slate-900 to-slate-950 text-slate-400 transform lg:translate-x-0 lg:static lg:inset-0 transition-transform duration-300 flex-shrink-0 flex flex-col border-e border-slate-800 shadow-2xl">
+                   class="fixed inset-y-0 start-0 z-[70] w-64 bg-gradient-to-b from-slate-950 via-slate-900 to-slate-950 text-slate-400 transform lg:translate-x-0 lg:static lg:inset-0 transition-transform duration-300 flex-shrink-0 flex flex-col border-e border-slate-800 shadow-2xl overflow-y-auto">
                 
                 <!-- Sidebar Header/Logo -->
                 <div class="h-16 px-6 flex items-center justify-between border-b border-slate-800/80">
