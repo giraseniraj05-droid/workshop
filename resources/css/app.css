@@ -304,6 +304,7 @@ button:active, .btn-hover-effect:active, .btn-active-press:active {
 .hover-card-lift:hover,
 .card-premium:hover,
 .card-color-transform:hover {
+    transition-delay: 0ms !important;
     transform: scale3d(1.03, 1.03, 1) translate3d(0, -5px, 0);
     background-color: #b45309 !important;
     border-color: #d97706 !important;

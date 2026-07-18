@@ -81,7 +81,8 @@
 
             .hero-panel:hover,
             .form-panel:hover {
-                transform: scale(1.025) translateY(-6px);
+                transition-delay: 0ms !important;
+                transform: scale3d(1.015, 1.015, 1) translate3d(0, -2px, 0);
                 box-shadow: 0 32px 70px -12px rgba(15, 23, 42, 0.22), 0 0 0 1px rgba(59, 130, 246, 0.25);
             }
 

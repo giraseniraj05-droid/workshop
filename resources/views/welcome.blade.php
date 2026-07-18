@@ -80,14 +80,13 @@
                     3 => 'card-border-sunset',
                 };
             @endphp
-            <div class="bg-white rounded-3xl shadow-sm border border-slate-100 flex flex-col group {{ $borderPreset }} smooth-card-motion running-border-active scroll-reveal" style="transition-delay: {{ $loop->index * 70 }}ms;">
+            <div class="bg-white rounded-3xl shadow-sm border border-slate-100 flex flex-col group {{ $borderPreset }} smooth-card-motion running-border-active scroll-reveal">
 
                 <!-- Hero Image -->
                 <div class="h-48 overflow-hidden bg-slate-100 relative">
-                    <div class="absolute inset-0 bg-slate-800/10 group-hover:bg-slate-800/0 transition-all duration-300"></div>
                     <img src="{{ $service->image ? (str_starts_with($service->image, 'images/') ? asset($service->image) : asset('storage/' . $service->image)) : asset('images/service-placeholder.png') }}"
                         alt="{{ $service->name }}"
-                        class="w-full h-full object-cover group-hover:scale-105 transition-all duration-500" />
+                        class="w-full h-full object-cover" />
 
                     <!-- Icon badge (logical positioning start-4) -->
                     <div class="absolute bottom-4 start-4 h-12 w-12 rounded-2xl bg-gradient-to-br from-white to-amber-50 text-amber-700 shadow-md border border-amber-100/80 flex items-center justify-center service-icon-badge">

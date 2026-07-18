@@ -47,7 +47,7 @@
                             default => 'card-border-royal'
                         };
                     @endphp
-                    <div class="border border-slate-100 rounded-2xl p-6 mb-6 transition-all duration-300 flex flex-col gap-6 last:mb-0 {{ $bookingBorder }} card-sheen hover-card-lift scroll-reveal" style="transition-delay: {{ $loop->index * 70 }}ms;">
+                    <div class="border border-slate-100 rounded-2xl p-6 mb-6 flex flex-col gap-6 last:mb-0 {{ $bookingBorder }} smooth-card-motion scroll-reveal">
                         <div class="flex flex-col md:flex-row md:items-center justify-between gap-6">
                             <div class="space-y-3">
                                 <div class="flex items-center gap-3">

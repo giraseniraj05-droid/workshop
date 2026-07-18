@@ -59,7 +59,7 @@
 
                     <div class="space-y-4">
                         @forelse($bookings as $booking)
-                            <div class="border border-slate-100 rounded-2xl p-6 transition flex flex-col md:flex-row justify-between gap-6 hover-card-lift scroll-reveal card-border-royal card-sheen" style="transition-delay: {{ $loop->index * 70 }}ms;">
+                            <div class="border border-slate-100 rounded-2xl p-6 flex flex-col md:flex-row justify-between gap-6 card-border-royal smooth-card-motion scroll-reveal">
                                 <div class="space-y-2">
                                     <div class="flex items-center gap-2">
                                         <span class="font-bold text-slate-900 text-base">{{ $booking->service->name }}</span>

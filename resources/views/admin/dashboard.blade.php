@@ -12,7 +12,7 @@
     <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 2xl:grid-cols-5 gap-8 mb-10">
         
         <!-- Services -->
-        <div class="w-full h-full min-h-[150px] bg-white p-8 rounded-3xl border border-slate-100 shadow-sm flex items-center gap-5 transition-all duration-300 card-border-emerald card-sheen glow-shadow-emerald hover-card-lift scroll-reveal" style="transition-delay: 0ms;">
+        <div class="w-full h-full min-h-[150px] bg-white p-8 rounded-3xl border border-slate-100 shadow-sm flex items-center gap-5 card-border-emerald smooth-card-motion scroll-reveal">
             <div class="h-14 w-14 rounded-2xl bg-teal-50 text-teal-600 flex items-center justify-center flex-shrink-0 text-lg">
                 <i class="fa-solid fa-layer-group"></i>
             </div>
@@ -26,7 +26,7 @@
         </div>
 
         <!-- Workers -->
-        <div class="w-full h-full min-h-[150px] bg-white p-8 rounded-3xl border border-slate-100 shadow-sm flex items-center gap-5 transition-all duration-300 card-border-royal card-sheen glow-shadow-primary hover-card-lift scroll-reveal" style="transition-delay: 60ms;">
+        <div class="w-full h-full min-h-[150px] bg-white p-8 rounded-3xl border border-slate-100 shadow-sm flex items-center gap-5 card-border-royal smooth-card-motion scroll-reveal">
             <div class="h-14 w-14 rounded-2xl bg-blue-50 text-blue-600 flex items-center justify-center flex-shrink-0 text-lg">
                 <i class="fa-solid fa-user-gear"></i>
             </div>
@@ -40,7 +40,7 @@
         </div>
 
         <!-- Customers -->
-        <div class="w-full h-full min-h-[150px] bg-white p-8 rounded-3xl border border-slate-100 shadow-sm flex items-center gap-5 transition-all duration-300 card-border-cyber card-sheen hover-card-lift scroll-reveal" style="transition-delay: 120ms;">
+        <div class="w-full h-full min-h-[150px] bg-white p-8 rounded-3xl border border-slate-100 shadow-sm flex items-center gap-5 card-border-cyber smooth-card-motion scroll-reveal">
             <div class="h-14 w-14 rounded-2xl bg-purple-50 text-purple-600 flex items-center justify-center flex-shrink-0 text-lg">
                 <i class="fa-solid fa-users"></i>
             </div>
@@ -51,7 +51,7 @@
         </div>
 
         <!-- Pending Bookings -->
-        <div class="w-full h-full min-h-[150px] bg-white p-8 rounded-3xl border border-slate-100 shadow-sm flex items-center gap-5 transition-all duration-300 card-border-amber card-sheen glow-shadow-amber hover-card-lift scroll-reveal" style="transition-delay: 180ms;">
+        <div class="w-full h-full min-h-[150px] bg-white p-8 rounded-3xl border border-slate-100 shadow-sm flex items-center gap-5 card-border-amber smooth-card-motion scroll-reveal">
             <div class="h-14 w-14 rounded-2xl bg-yellow-50 text-yellow-600 flex items-center justify-center flex-shrink-0 text-lg relative">
                 <i class="fa-solid fa-calendar-check"></i>
                 @if($stats['pending_bookings'] > 0)
@@ -65,7 +65,7 @@
         </div>
 
         <!-- Open Enquiries -->
-        <div class="w-full h-full min-h-[150px] bg-white p-8 rounded-3xl border border-slate-100 shadow-sm flex items-center gap-5 transition-all duration-300 card-border-sunset card-sheen hover-card-lift scroll-reveal" style="transition-delay: 240ms;">
+        <div class="w-full h-full min-h-[150px] bg-white p-8 rounded-3xl border border-slate-100 shadow-sm flex items-center gap-5 card-border-sunset smooth-card-motion scroll-reveal">
             <div class="h-14 w-14 rounded-2xl bg-red-50 text-red-600 flex items-center justify-center flex-shrink-0 text-lg relative">
                 <i class="fa-solid fa-envelope-open-text"></i>
                 @if($stats['open_enquiries'] > 0)
