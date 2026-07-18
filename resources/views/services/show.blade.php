@@ -96,7 +96,7 @@
 
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                     @forelse($workers as $worker)
-                        <div class="bg-white rounded-2xl p-6 border border-slate-100 shadow-sm flex flex-col card-border-emerald smooth-card-motion scroll-reveal">
+                        <div class="bg-white rounded-2xl p-6 border border-slate-100 shadow-sm flex flex-col card-border-emerald smooth-card-motion running-border-active scroll-reveal">
                             <!-- Photo and Name -->
                             <div class="flex items-center gap-4 mb-4">
                                 <div class="h-16 w-16 rounded-full bg-teal-50 border border-teal-100 flex items-center justify-center text-teal-600 font-bold overflow-hidden shadow-inner flex-shrink-0">
@@ -122,7 +122,7 @@
                                     <span class="text-[10px] font-bold text-slate-400 uppercase tracking-wider block mb-1.5">{{ __('messages.skills_label') }}</span>
                                     <div class="flex flex-wrap gap-1">
                                         @foreach($worker->workerProfile->skills as $skill)
-                                            <span class="px-2 py-0.5 bg-slate-50 border border-slate-100 text-slate-600 rounded-md text-[10px] font-semibold">
+                                            <span class="px-2 py-0.5 bg-slate-50 border border-slate-100 text-slate-600 rounded-md text-[10px] font-semibold skill-tag">
                                                 {{ $skill }}
                                             </span>
                                         @endforeach

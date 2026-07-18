@@ -368,6 +368,51 @@ button:active, .btn-hover-effect:active, .btn-active-press:active {
     color: #ffffff !important;
 }
 
+/* Phase 2: Universal Skill Area, Tag & Content Visibility Engine */
+.smooth-card-motion:hover .skill-tag,
+.card-color-transform:hover .skill-tag,
+.smooth-card-motion:hover [class*="bg-slate-50"],
+.smooth-card-motion:hover [class*="bg-slate-100"],
+.card-color-transform:hover [class*="bg-slate-50"],
+.card-color-transform:hover [class*="bg-slate-100"] {
+    background-color: rgba(255, 255, 255, 0.22) !important;
+    border-color: rgba(255, 255, 255, 0.38) !important;
+    color: #ffffff !important;
+    transition: background-color 550ms cubic-bezier(0.16, 1, 0.3, 1),
+                border-color 550ms cubic-bezier(0.16, 1, 0.3, 1),
+                color 550ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.smooth-card-motion:hover [class*="text-slate-400"],
+.smooth-card-motion:hover [class*="text-slate-500"],
+.smooth-card-motion:hover [class*="text-slate-550"],
+.smooth-card-motion:hover [class*="text-slate-600"],
+.smooth-card-motion:hover [class*="text-slate-700"],
+.smooth-card-motion:hover [class*="text-slate-800"],
+.smooth-card-motion:hover [class*="text-slate-900"],
+.smooth-card-motion:hover [class*="text-teal-600"],
+.smooth-card-motion:hover [class*="text-amber-500"],
+.card-color-transform:hover [class*="text-slate-400"],
+.card-color-transform:hover [class*="text-slate-500"],
+.card-color-transform:hover [class*="text-slate-550"],
+.card-color-transform:hover [class*="text-slate-600"],
+.card-color-transform:hover [class*="text-slate-700"],
+.card-color-transform:hover [class*="text-slate-800"],
+.card-color-transform:hover [class*="text-slate-900"],
+.card-color-transform:hover [class*="text-teal-600"],
+.card-color-transform:hover [class*="text-amber-500"] {
+    color: #ffffff !important;
+    transition: color 550ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.smooth-card-motion:hover [class*="border-slate-50"],
+.smooth-card-motion:hover [class*="border-slate-100"],
+.card-color-transform:hover [class*="border-slate-50"],
+.card-color-transform:hover [class*="border-slate-100"] {
+    border-color: rgba(255, 255, 255, 0.25) !important;
+    transition: border-color 550ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
 /* Continuous Traveling Running Border */
 .running-border-active {
     position: relative;
