@@ -419,7 +419,7 @@ button:active,
 .card-color-transform img {
     transition: color .22s ease;
     will-change: transform;
-    border-radius: 28px;
+    border-radius: inherit;
 
 }
 
