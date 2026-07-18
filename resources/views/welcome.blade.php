@@ -4,6 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" type="image/png" href="{{ asset('images/company-logo.png') }}">
     <title>{{ __('messages.app_name') }} - On-Demand Services</title>
 
     <!-- Fonts -->
