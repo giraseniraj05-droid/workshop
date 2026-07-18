@@ -59,7 +59,7 @@
     </section>
 
     <!-- Services Section -->
-    <section id="services-list" class="py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="services-list" class="py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 overflow-visible">
         <div class="text-center mb-16">
             <h2 class="text-3xl font-extrabold text-slate-900 mb-4">
                 {{ __('messages.our_services') }}
@@ -70,7 +70,7 @@
         </div>
 
         <!-- Services Grid -->
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 overflow-visible">
             @forelse($services as $service)
             @php
                 $borderPreset = match($loop->index % 4) {
@@ -80,14 +80,13 @@
                     3 => 'card-border-sunset',
                 };
             @endphp
-            <div class="bg-white rounded-3xl shadow-sm border border-slate-100 flex flex-col group {{ $borderPreset }} smooth-card-motion running-border-active scroll-reveal">
+            <div class="bg-white rounded-3xl shadow-sm border border-slate-100 flex flex-col group {{ $borderPreset }} smooth-card-motion running-border-active">
 
                 <!-- Hero Image -->
                 <div class="h-48 overflow-hidden bg-slate-100 relative">
                     <img src="{{ $service->image ? (str_starts_with($service->image, 'images/') ? asset($service->image) : asset('storage/' . $service->image)) : asset('images/service-placeholder.png') }}"
                         alt="{{ $service->name }}"
-                        class="w-full h-full object-cover" />
-
+    class="w-full h-full object-cover transition-transform duration-300 ease-out" />
                     <!-- Icon badge (logical positioning start-4) -->
                     <div class="absolute bottom-4 start-4 h-12 w-12 rounded-2xl bg-gradient-to-br from-white to-amber-50 text-amber-700 shadow-md border border-amber-100/80 flex items-center justify-center service-icon-badge">
                         @if($service->icon === 'sparkles')
@@ -126,7 +125,7 @@
                             <span class="text-lg font-extrabold text-slate-800">${{ number_format($service->price, 2) }}</span>
                         </div>
                         <a href="{{ route('services.show', $service->slug) }}"
-                            class="px-4 py-2.5 bg-slate-50 hover:bg-teal-50 text-slate-700 hover:text-teal-600 font-bold rounded-lg text-sm transition shadow-sm">
+                            class="px-4 py-2.5 bg-slate-50 hover:bg-white/20 text-slate-700 hover:text-white font-bold rounded-lg text-sm transition-all duration-200 ease-out shadow-sm">
                             {{ __('messages.view_details') }}
                         </a>
                     </div>
