@@ -11,7 +11,7 @@
                 </button>
             @endif
             <a href="{{ route('home') }}" class="brand">
-                <x-application-logo class="h-24 w-24 object-contain" />
+                <x-application-logo class="h-40 w-40 object-contain" />
                 <span class="brand-name">{{ __('messages.app_name') }}</span>
             </a>
         </div>
