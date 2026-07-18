@@ -352,7 +352,7 @@ button:active,
 .hover-card-lift,
 .card-premium,
 .card-color-transform {
-    /* GPU-composited properties only – no width/height/margin reflow */
+    /* GPU-composited properties only — no width/height/margin reflow */
     transition:
         transform 320ms cubic-bezier(0.22, 1, 0.36, 1),
         background-color 220ms ease,
@@ -369,6 +369,11 @@ button:active,
     will-change: transform, box-shadow;
     /* Prevent image/pseudo-element bleeding outside corners */
     isolation: isolate;
+    /* Attractive resting state border + shadow */
+    box-shadow:
+        0 0 0 1px rgba(59, 130, 246, 0.15),
+        0 2px 8px rgba(30, 64, 175, 0.06),
+        0 1px 3px rgba(0, 0, 0, 0.05);
 }
 
 .smooth-card-motion:hover,
@@ -380,8 +385,9 @@ button:active,
     border-color: #d97706 !important;
     border-radius: 28px !important;
     box-shadow:
-        0 16px 40px rgba(180, 83, 9, 0.22),
-        0 6px 16px rgba(180, 83, 9, 0.12);
+        0 0 0 2px rgba(180, 83, 9, 0.45),
+        0 16px 40px rgba(180, 83, 9, 0.24),
+        0 6px 16px rgba(180, 83, 9, 0.14);
     transition-delay: 0s;
 }
 
@@ -593,55 +599,87 @@ button:active,
 }
 
 /* =====================================================
-   Non-Destructive Running Border (mask-based)
-   Does NOT set background:white on children.
-   Does NOT change card size/position.
+   Premium Always-Visible Running Border
+   Uses transform:rotate on ::before to spin the
+   conic-gradient. ::after is the inner card mask.
    ===================================================== */
+
+/* Card base border + shadow (always visible, no hover needed) */
 .running-border-active {
     position: relative;
     border-radius: 28px !important;
+    overflow: hidden;
+    /* Subtle resting border glow + shadow */
+    box-shadow:
+        0 0 0 1.5px rgba(59, 130, 246, 0.25),
+        0 4px 20px rgba(59, 130, 246, 0.08),
+        0 1px 4px rgba(0, 0, 0, 0.06);
+    transition:
+        box-shadow 350ms cubic-bezier(0.16, 1, 0.3, 1);
 }
 
+/* Spinning conic-gradient layer behind the card */
 .running-border-active::before {
     content: "";
     position: absolute;
-    inset: -2px;
-    border-radius: inherit;
-    padding: 2px;
+    inset: -3px;
+    z-index: 0;
+    border-radius: 32px;
     background: conic-gradient(
         from 0deg,
-        #3b82f6,
-        #4f46e5,
-        #d97706,
-        #ec4899,
-        #06b6d4,
-        #3b82f6
+        #3b82f6   0deg,
+        #4f46e5   72deg,
+        #d97706   144deg,
+        #ec4899   216deg,
+        #06b6d4   288deg,
+        #3b82f6   360deg
     );
-    background-size: 300% 300%;
-    /* Non-destructive masking — shows only the border strip, not the fill */
-    -webkit-mask:
-        linear-gradient(#fff 0 0) content-box,
-        linear-gradient(#fff 0 0);
-    -webkit-mask-composite: destination-out;
-    mask:
-        linear-gradient(#fff 0 0) content-box,
-        linear-gradient(#fff 0 0);
-    mask-composite: exclude;
+    animation: cardBorderSpin 4s linear infinite;
+    opacity: 0.55;
+    transition: opacity 350ms ease;
+}
+
+/* Inner mask — hides the conic fill, keeps only the glowing ring */
+.running-border-active::after {
+    content: "";
+    position: absolute;
+    inset: 2px;
+    z-index: 1;
+    border-radius: 26px;
+    background: #ffffff;
+    transition: background 220ms ease;
     pointer-events: none;
-    z-index: 10;
-    opacity: 0;
-    transition: opacity 400ms ease;
-    animation: runningBorderSpin 4s linear infinite;
+}
+
+/* On hover the card turns #b45309 — ::after must match */
+.running-border-active:hover::after,
+.smooth-card-motion:hover.running-border-active::after,
+.card-color-transform:hover.running-border-active::after {
+    background: #b45309;
+}
+
+/* Brighter border + bigger amber shadow on hover */
+.running-border-active:hover {
+    box-shadow:
+        0 0 0 2px rgba(180, 83, 9, 0.55),
+        0 16px 40px rgba(180, 83, 9, 0.22),
+        0 6px 16px rgba(180, 83, 9, 0.14);
 }
 
 .running-border-active:hover::before {
     opacity: 1;
+    animation-duration: 2.5s;
 }
 
-@keyframes runningBorderSpin {
-    0%   { background-position: 0% 50%; }
-    50%  { background-position: 100% 50%; }
-    100% { background-position: 0% 50%; }
+/* All card content must sit above the pseudo-elements */
+.running-border-active > * {
+    position: relative;
+    z-index: 2;
+}
+
+@keyframes cardBorderSpin {
+    from { transform: rotate(0deg); }
+    to   { transform: rotate(360deg); }
 }
 
 /* Animated Gradient Drift */
