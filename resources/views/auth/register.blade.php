@@ -68,9 +68,21 @@
 
             .hero-panel,
             .form-panel {
-                border-radius: 30px;
+                border-radius: 28px;
                 overflow: hidden;
                 box-shadow: 0 24px 60px rgba(15, 23, 42, 0.12);
+                transition: transform 450ms cubic-bezier(0.16, 1, 0.3, 1),
+                            box-shadow 450ms cubic-bezier(0.16, 1, 0.3, 1),
+                            border-color 450ms cubic-bezier(0.16, 1, 0.3, 1);
+                will-change: transform, box-shadow;
+                transform: translateZ(0);
+                backface-visibility: hidden;
+            }
+
+            .hero-panel:hover,
+            .form-panel:hover {
+                transform: scale(1.025) translateY(-6px);
+                box-shadow: 0 32px 70px -12px rgba(15, 23, 42, 0.22), 0 0 0 1px rgba(59, 130, 246, 0.25);
             }
 
             .hero-panel {
@@ -157,6 +169,18 @@
                 line-height: 1.7;
                 font-weight: 600;
                 backdrop-filter: blur(10px);
+                transition: transform 300ms cubic-bezier(0.16, 1, 0.3, 1),
+                            background-color 300ms cubic-bezier(0.16, 1, 0.3, 1),
+                            box-shadow 300ms cubic-bezier(0.16, 1, 0.3, 1),
+                            border-color 300ms cubic-bezier(0.16, 1, 0.3, 1);
+                will-change: transform;
+            }
+
+            .feature-card:hover {
+                transform: translateY(-3px) scale(1.03);
+                background: rgba(255, 255, 255, 0.22);
+                border-color: rgba(255, 255, 255, 0.45);
+                box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
             }
 
             .hero-actions {

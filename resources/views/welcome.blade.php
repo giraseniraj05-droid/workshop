@@ -80,7 +80,7 @@
                     3 => 'card-border-sunset',
                 };
             @endphp
-            <div class="bg-white rounded-2xl shadow-sm border border-slate-100 overflow-hidden transition-all duration-300 flex flex-col group {{ $borderPreset }} card-sheen glow-shadow-primary hover-card-lift card-premium scroll-reveal" style="transition-delay: {{ $loop->index * 70 }}ms;">
+            <div class="bg-white rounded-3xl shadow-sm border border-slate-100 overflow-hidden transition-all duration-300 flex flex-col group {{ $borderPreset }} card-sheen glow-shadow-primary card-color-transform running-border-active scroll-reveal" style="transition-delay: {{ $loop->index * 70 }}ms;">
 
                 <!-- Hero Image -->
                 <div class="h-48 overflow-hidden bg-slate-100 relative">
