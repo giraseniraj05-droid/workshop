@@ -90,24 +90,33 @@ button:active, .btn-hover-effect:active, .btn-active-press:active {
     background-image: var(--hover-gradient);
 }
 
-/* Running border effect for cards */
+/* Base running border effect container */
 @keyframes border-flow {
     0% { background-position: 0% 50%; }
     100% { background-position: 200% 50%; }
 }
 
-.card-animated-border {
+.card-animated-border,
+.card-border-royal,
+.card-border-emerald,
+.card-border-sunset,
+.card-border-cyber,
+.card-border-amber {
     position: relative;
     border-radius: inherit;
 }
 
-.card-animated-border::before {
+.card-animated-border::before,
+.card-border-royal::before,
+.card-border-emerald::before,
+.card-border-sunset::before,
+.card-border-cyber::before,
+.card-border-amber::before {
     content: '';
     position: absolute;
     inset: 0;
     border-radius: inherit;
     padding: 1.5px;
-    background: linear-gradient(90deg, var(--primary), var(--accent), var(--secondary), var(--primary));
     background-size: 200% 100%;
     -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
     -webkit-mask-composite: xor;
@@ -116,10 +125,106 @@ button:active, .btn-hover-effect:active, .btn-active-press:active {
     transition: opacity 300ms ease-out;
     animation: border-flow 6s linear infinite;
     pointer-events: none;
+    z-index: 10;
 }
 
-.card-animated-border:hover::before {
+/* Default / Royal Blue & Indigo & Gold */
+.card-animated-border::before,
+.card-border-royal::before {
+    background-image: linear-gradient(90deg, #1e40af, #4f46e5, #d97706, #1e40af);
+}
+
+/* Teal & Emerald & Cyan */
+.card-border-emerald::before {
+    background-image: linear-gradient(90deg, #0d9488, #10b981, #06b6d4, #0d9488);
+}
+
+/* Gold & Coral & Rose */
+.card-border-sunset::before {
+    background-image: linear-gradient(90deg, #d97706, #f43f5e, #e11d48, #d97706);
+}
+
+/* Fuchsia & Violet & Sky */
+.card-border-cyber::before {
+    background-image: linear-gradient(90deg, #c026d3, #7c3aed, #0284c7, #c026d3);
+}
+
+/* Amber & Gold & Bronze */
+.card-border-amber::before {
+    background-image: linear-gradient(90deg, #f59e0b, #d97706, #b45309, #f59e0b);
+}
+
+.card-animated-border:hover::before,
+.card-border-royal:hover::before,
+.card-border-emerald:hover::before,
+.card-border-sunset:hover::before,
+.card-border-cyber:hover::before,
+.card-border-amber:hover::before {
     opacity: 1;
+}
+
+/* Card Sheen light reflection sweep */
+.card-sheen {
+    position: relative;
+    overflow: hidden;
+}
+.card-sheen::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -60%;
+    width: 50%;
+    height: 200%;
+    background: linear-gradient(
+        60deg,
+        rgba(255, 255, 255, 0) 0%,
+        rgba(255, 255, 255, 0.22) 50%,
+        rgba(255, 255, 255, 0) 100%
+    );
+    transform: rotate(25deg);
+    opacity: 0;
+    transition: opacity 200ms ease, transform 700ms cubic-bezier(0.4, 0, 0.2, 1);
+    pointer-events: none;
+    z-index: 15;
+}
+.card-sheen:hover::after {
+    opacity: 1;
+    transform: translate(320%, 0) rotate(25deg);
+}
+
+/* Floating Ambient Blob animation */
+@keyframes floatBlob {
+    0%, 100% { transform: translate(0px, 0px) scale(1); }
+    33% { transform: translate(30px, -40px) scale(1.1); }
+    66% { transform: translate(-20px, 20px) scale(0.95); }
+}
+.animate-blob-slow {
+    animation: floatBlob 12s ease-in-out infinite;
+}
+.animate-blob-delay {
+    animation: floatBlob 14s ease-in-out 3s infinite;
+}
+
+/* Glow shadow utilities */
+.glow-shadow-primary {
+    transition: box-shadow 300ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+.glow-shadow-primary:hover {
+    box-shadow: 0 14px 30px -10px rgba(30, 64, 175, 0.35) !important;
+}
+
+.glow-shadow-emerald {
+    transition: box-shadow 300ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+.glow-shadow-emerald:hover {
+    box-shadow: 0 14px 30px -10px rgba(13, 148, 136, 0.35) !important;
+}
+
+.glow-shadow-amber {
+    transition: box-shadow 300ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+.glow-shadow-amber:hover {
+    box-shadow: 0 14px 30px -10px rgba(217, 119, 6, 0.35) !important;
 }
 
 /* Keyframe entrance animations */
@@ -173,10 +278,10 @@ button:active, .btn-hover-effect:active, .btn-active-press:active {
     transition: transform 150ms ease-out, color 150ms ease-out;
 }
 .star-rating-btn:hover {
-    transform: scale(1.15);
+    transform: scale(1.2);
 }
 .star-rating-btn:active {
-    transform: scale(1.25);
+    transform: scale(1.35);
 }
 
 /* Global prefers-reduced-motion constraint */

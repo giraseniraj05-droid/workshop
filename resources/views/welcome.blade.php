@@ -36,7 +36,10 @@
 
     <!-- Hero Section -->
     <section class="bg-gradient-to-br from-teal-500 via-blue-600 to-indigo-700 text-white py-20 relative overflow-hidden">
-        <div class="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(255,255,255,0.1),transparent_40%)]"></div>
+        <!-- Floating Ambient Background Blobs -->
+        <div class="absolute -top-16 -start-16 w-80 h-80 bg-teal-300/20 rounded-full blur-3xl animate-blob-slow pointer-events-none"></div>
+        <div class="absolute -bottom-16 -end-16 w-80 h-80 bg-indigo-400/25 rounded-full blur-3xl animate-blob-delay pointer-events-none"></div>
+        <div class="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(255,255,255,0.12),transparent_40%)]"></div>
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
             <span class="px-3 py-1 bg-white/20 backdrop-blur-md rounded-full text-xs font-bold uppercase tracking-wider mb-4 inline-block">
                 {{ __('messages.hero_badge') }}
@@ -69,7 +72,15 @@
         <!-- Services Grid -->
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             @forelse($services as $service)
-            <div class="bg-white rounded-2xl shadow-sm border border-slate-100 overflow-hidden hover:shadow-xl hover:border-teal-200 transition-all duration-300 flex flex-col group card-animated-border">
+            @php
+                $borderPreset = match($loop->index % 4) {
+                    0 => 'card-border-royal',
+                    1 => 'card-border-emerald',
+                    2 => 'card-border-cyber',
+                    3 => 'card-border-sunset',
+                };
+            @endphp
+            <div class="bg-white rounded-2xl shadow-sm border border-slate-100 overflow-hidden hover:shadow-2xl hover:-translate-y-1.5 transition-all duration-300 flex flex-col group {{ $borderPreset }} card-sheen glow-shadow-primary">
 
                 <!-- Hero Image -->
                 <div class="h-48 overflow-hidden bg-slate-100 relative">

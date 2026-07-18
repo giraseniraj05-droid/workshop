@@ -96,7 +96,7 @@
 
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                     @forelse($workers as $worker)
-                        <div class="bg-white rounded-2xl p-6 border border-slate-100 shadow-sm flex flex-col hover:border-teal-200 hover:-translate-y-0.5 hover:shadow-md transition-all duration-200 card-animated-border">
+                        <div class="bg-white rounded-2xl p-6 border border-slate-100 shadow-sm flex flex-col hover:-translate-y-1.5 hover:shadow-xl transition-all duration-300 card-border-emerald card-sheen glow-shadow-emerald">
                             <!-- Photo and Name -->
                             <div class="flex items-center gap-4 mb-4">
                                 <div class="h-16 w-16 rounded-full bg-teal-50 border border-teal-100 flex items-center justify-center text-teal-600 font-bold overflow-hidden shadow-inner flex-shrink-0">
@@ -177,7 +177,7 @@
                     </h2>
 
                     @forelse($reviews as $review)
-                        <div class="bg-white rounded-2xl p-6 border border-slate-100 shadow-sm mb-6 last:mb-0 hover:border-teal-200 hover:-translate-y-0.5 hover:shadow-md transition-all duration-200 card-animated-border animate-fade-in-up" style="animation-delay: {{ $loop->index * 60 }}ms;">
+                        <div class="bg-white rounded-2xl p-6 border border-slate-100 shadow-sm mb-6 last:mb-0 hover:-translate-y-1.5 hover:shadow-xl transition-all duration-300 card-border-amber card-sheen glow-shadow-amber animate-fade-in-up" style="animation-delay: {{ $loop->index * 60 }}ms;">
                             <div class="flex items-center justify-between mb-4">
                                 <div class="flex items-center gap-3">
                                     <div class="h-10 w-10 rounded-full bg-teal-50 border border-teal-100 flex items-center justify-center text-teal-600 font-bold overflow-hidden shadow-inner flex-shrink-0">
