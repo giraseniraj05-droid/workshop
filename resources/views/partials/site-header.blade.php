@@ -12,7 +12,7 @@
             @endif
             <a href="{{ route('home') }}" class="brand">
                 <x-application-logo class="h-28 w-40 object-contain" />
-                <span class="brand-name">{{ __('messages.app_name') }}</span>
+                <span class="brand-name hidden md:block">{{ __('messages.app_name') }}</span>
             </a>
         </div>
 
