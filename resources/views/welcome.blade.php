@@ -51,7 +51,7 @@
                 {{ __('messages.hero_subtitle') }}
             </p>
             <div class="flex flex-wrap justify-center gap-4">
-                <a href="#services-list" class="px-8 py-4 bg-white text-blue-700 font-bold rounded-xl shadow-lg hover:shadow-xl transition hover:-translate-y-0.5">
+                <a href="#services-list" class="px-8 py-4 bg-white text-blue-700 font-bold rounded-xl shadow-lg hover:shadow-xl btn-press">
                     {{ __('messages.browse_services_btn') }}
                 </a>
             </div>
@@ -80,7 +80,7 @@
                     3 => 'card-border-sunset',
                 };
             @endphp
-            <div class="bg-white rounded-2xl shadow-sm border border-slate-100 overflow-hidden hover:shadow-2xl hover:-translate-y-1.5 transition-all duration-300 flex flex-col group {{ $borderPreset }} card-sheen glow-shadow-primary">
+            <div class="bg-white rounded-2xl shadow-sm border border-slate-100 overflow-hidden transition-all duration-300 flex flex-col group {{ $borderPreset }} card-sheen glow-shadow-primary hover-card-lift scroll-reveal" style="transition-delay: {{ $loop->index * 70 }}ms;">
 
                 <!-- Hero Image -->
                 <div class="h-48 overflow-hidden bg-slate-100 relative">

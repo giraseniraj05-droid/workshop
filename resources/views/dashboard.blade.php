@@ -25,7 +25,7 @@
                     <p class="text-teal-50/90 text-sm leading-relaxed mb-6">
                         {{ __('messages.dashboard_desc') }}
                     </p>
-                    <a href="/" class="inline-block px-5 py-2.5 bg-white text-teal-700 font-bold rounded-lg hover:shadow-xl hover:-translate-y-1 active:scale-[0.98] transition-all duration-200 text-sm">
+                    <a href="/" class="inline-block px-5 py-2.5 bg-white text-teal-700 font-bold rounded-lg hover:shadow-xl transition-all duration-200 text-sm btn-press">
                         {{ __('messages.book_new_service') }}
                     </a>
                 </div>
@@ -47,7 +47,7 @@
                             default => 'card-border-royal'
                         };
                     @endphp
-                    <div class="border border-slate-100 rounded-2xl p-6 mb-6 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col gap-6 last:mb-0 {{ $bookingBorder }} card-sheen">
+                    <div class="border border-slate-100 rounded-2xl p-6 mb-6 transition-all duration-300 flex flex-col gap-6 last:mb-0 {{ $bookingBorder }} card-sheen hover-card-lift scroll-reveal" style="transition-delay: {{ $loop->index * 70 }}ms;">
                         <div class="flex flex-col md:flex-row md:items-center justify-between gap-6">
                             <div class="space-y-3">
                                 <div class="flex items-center gap-3">
@@ -57,7 +57,7 @@
                                     
                                     <!-- Localized Status Badge -->
                                     @if($booking->status === 'pending')
-                                        <span class="inline-flex items-center gap-1.5 px-3 py-1 bg-yellow-50 text-yellow-700 border border-yellow-200 rounded-full text-xs font-bold uppercase tracking-wider animate-pop-in">
+                                        <span class="inline-flex items-center gap-1.5 px-3 py-1 bg-yellow-50 text-yellow-700 border border-yellow-200 rounded-full text-xs font-bold uppercase tracking-wider animate-pop-in status-badge">
                                             <span class="relative flex h-2 w-2">
                                                 <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-yellow-400 opacity-75"></span>
                                                 <span class="relative inline-flex rounded-full h-2 w-2 bg-yellow-500"></span>
@@ -65,7 +65,7 @@
                                             {{ __('messages.pending') }}
                                         </span>
                                     @elseif($booking->status === 'accepted')
-                                        <span class="inline-flex items-center gap-1.5 px-3 py-1 bg-blue-50 text-blue-700 border border-blue-200 rounded-full text-xs font-bold uppercase tracking-wider animate-pop-in">
+                                        <span class="inline-flex items-center gap-1.5 px-3 py-1 bg-blue-50 text-blue-700 border border-blue-200 rounded-full text-xs font-bold uppercase tracking-wider animate-pop-in status-badge">
                                             <span class="relative flex h-2 w-2">
                                                 <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-75"></span>
                                                 <span class="relative inline-flex rounded-full h-2 w-2 bg-blue-500"></span>
@@ -73,7 +73,7 @@
                                             {{ __('messages.accepted') }}
                                         </span>
                                     @elseif($booking->status === 'completed')
-                                        <span class="inline-flex items-center gap-1.5 px-3 py-1 bg-teal-50 text-teal-700 border border-teal-200 rounded-full text-xs font-bold uppercase tracking-wider animate-pop-in">
+                                        <span class="inline-flex items-center gap-1.5 px-3 py-1 bg-teal-50 text-teal-700 border border-teal-200 rounded-full text-xs font-bold uppercase tracking-wider animate-pop-in status-badge">
                                             <span class="relative flex h-2 w-2">
                                                 <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-teal-400 opacity-75"></span>
                                                 <span class="relative inline-flex rounded-full h-2 w-2 bg-teal-500"></span>
@@ -81,7 +81,7 @@
                                             {{ __('messages.completed') }}
                                         </span>
                                     @elseif($booking->status === 'rejected')
-                                        <span class="inline-flex items-center gap-1.5 px-3 py-1 bg-rose-50 text-rose-700 border border-rose-200 rounded-full text-xs font-bold uppercase tracking-wider animate-pop-in">
+                                        <span class="inline-flex items-center gap-1.5 px-3 py-1 bg-rose-50 text-rose-700 border border-rose-200 rounded-full text-xs font-bold uppercase tracking-wider animate-pop-in status-badge">
                                             <span class="relative flex h-2 w-2">
                                                 <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-rose-400 opacity-75"></span>
                                                 <span class="relative inline-flex rounded-full h-2 w-2 bg-rose-500"></span>
@@ -89,7 +89,7 @@
                                             {{ __('messages.rejected') }}
                                         </span>
                                     @else
-                                        <span class="inline-flex items-center gap-1.5 px-3 py-1 bg-slate-50 text-slate-700 border border-slate-200 rounded-full text-xs font-bold uppercase tracking-wider animate-pop-in">
+                                        <span class="inline-flex items-center gap-1.5 px-3 py-1 bg-slate-50 text-slate-700 border border-slate-200 rounded-full text-xs font-bold uppercase tracking-wider animate-pop-in status-badge">
                                             <span class="relative flex h-2 w-2">
                                                 <span class="relative inline-flex rounded-full h-2 w-2 bg-slate-400"></span>
                                             </span>
@@ -193,7 +193,7 @@
                                                 class="w-full text-sm border border-slate-200 rounded-xl px-4 py-3 focus:outline-none focus:border-teal-500 focus:ring-1 focus:ring-teal-500 transition"></textarea>
                                         </div>
 
-                                        <button type="submit" class="px-5 py-3 bg-teal-600 hover:bg-teal-700 text-white font-bold rounded-xl text-xs transition shadow-sm hover:shadow">
+                                        <button type="submit" class="px-5 py-3 bg-teal-600 hover:bg-teal-700 text-white font-bold rounded-xl text-xs transition shadow-sm hover:shadow btn-press">
                                             {{ __('messages.submit_review') }}
                                         </button>
                                     </form>

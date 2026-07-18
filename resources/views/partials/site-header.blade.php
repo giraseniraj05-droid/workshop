@@ -37,22 +37,22 @@
         @else
             <!-- Desktop actions: hidden below md, shown at md+ -->
             <div class="header-actions hidden md:flex">
-                <a href="{{ route('lang.switch', app()->getLocale() === 'en' ? 'ar' : 'en') }}" class="lang-pill">
+                <a href="{{ route('lang.switch', app()->getLocale() === 'en' ? 'ar' : 'en') }}" class="lang-pill btn-press">
                     <i class="fa-solid fa-language"></i>
                     <span>{{ app()->getLocale() === 'en' ? 'العربية' : 'English' }}</span>
                 </a>
                 @auth
-                    <a href="{{ route('dashboard') }}" class="header-link{{ $page === 'dashboard' ? ' is-active' : '' }}">{{ __('Dashboard') }}</a>
+                    <a href="{{ route('dashboard') }}" class="header-link{{ $page === 'dashboard' ? ' is-active' : '' }} btn-press">{{ __('Dashboard') }}</a>
                     <form method="POST" action="{{ route('logout') }}" class="inline-block m-0 p-0">
                         @csrf
-                        <button type="submit" class="header-link">
+                        <button type="submit" class="header-link btn-press">
                             {{ __('Log Out') }}
                         </button>
                     </form>
                 @else
-                    <a href="{{ route('login') }}" class="header-link{{ $page === 'login' ? ' is-active' : '' }}">{{ __('Sign In') }}</a>
+                    <a href="{{ route('login') }}" class="header-link{{ $page === 'login' ? ' is-active' : '' }} btn-press">{{ __('Sign In') }}</a>
                     @if (Route::has('register'))
-                        <a href="{{ route('register') }}" class="header-link{{ $page === 'register' ? ' is-active' : '' }}">{{ __('Register') }}</a>
+                        <a href="{{ route('register') }}" class="header-link{{ $page === 'register' ? ' is-active' : '' }} btn-press">{{ __('Register') }}</a>
                     @endif
                 @endauth
             </div>

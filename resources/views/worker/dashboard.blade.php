@@ -4,7 +4,7 @@
             <span class="flex items-center gap-2">
                 <i class="fa-solid fa-briefcase text-blue-600"></i> {{ __('messages.worker_portal') }}
             </span>
-            <a href="{{ route('worker.profile.edit') }}" class="px-4 py-2 text-sm bg-blue-50 text-blue-700 hover:bg-blue-100 font-bold rounded-lg transition shadow-sm">
+            <a href="{{ route('worker.profile.edit') }}" class="px-4 py-2 text-sm bg-blue-50 text-blue-700 hover:bg-blue-100 font-bold rounded-lg transition shadow-sm btn-press">
                 <i class="fa-solid fa-user-edit mr-1"></i> {{ __('messages.edit_profile') }}
             </a>
         </h2>
@@ -36,7 +36,7 @@
                     
                     <div class="space-y-3 flex-1">
                         @forelse($assignedServices as $service)
-                            <div class="bg-slate-50 border border-slate-100 rounded-xl p-4 flex items-center gap-3">
+                            <div class="bg-slate-50 border border-slate-100 rounded-xl p-4 flex items-center gap-3 hover-card-lift">
                                 <div class="h-10 w-10 rounded-lg bg-blue-50 text-blue-600 flex items-center justify-center">
                                     <i class="fa-solid fa-screwdriver-wrench"></i>
                                 </div>
@@ -59,30 +59,30 @@
 
                     <div class="space-y-4">
                         @forelse($bookings as $booking)
-                            <div class="border border-slate-100 rounded-2xl p-6 hover:shadow-sm transition flex flex-col md:flex-row justify-between gap-6">
+                            <div class="border border-slate-100 rounded-2xl p-6 transition flex flex-col md:flex-row justify-between gap-6 hover-card-lift scroll-reveal card-border-royal card-sheen" style="transition-delay: {{ $loop->index * 70 }}ms;">
                                 <div class="space-y-2">
                                     <div class="flex items-center gap-2">
                                         <span class="font-bold text-slate-900 text-base">{{ $booking->service->name }}</span>
                                         
                                         <!-- Localized Status Badge -->
                                         @if($booking->status === 'pending')
-                                            <span class="px-2 py-0.5 bg-yellow-50 text-yellow-700 border border-yellow-200 rounded-full text-[10px] font-bold uppercase tracking-wider">
+                                            <span class="px-2 py-0.5 bg-yellow-50 text-yellow-700 border border-yellow-200 rounded-full text-[10px] font-bold uppercase tracking-wider status-badge">
                                                 {{ __('messages.pending') }}
                                             </span>
                                         @elseif($booking->status === 'accepted')
-                                            <span class="px-2 py-0.5 bg-blue-50 text-blue-700 border border-blue-200 rounded-full text-[10px] font-bold uppercase tracking-wider">
+                                            <span class="px-2 py-0.5 bg-blue-50 text-blue-700 border border-blue-200 rounded-full text-[10px] font-bold uppercase tracking-wider status-badge">
                                                 {{ __('messages.accepted') }}
                                             </span>
                                         @elseif($booking->status === 'completed')
-                                            <span class="px-2 py-0.5 bg-teal-50 text-teal-700 border border-teal-200 rounded-full text-[10px] font-bold uppercase tracking-wider">
+                                            <span class="px-2 py-0.5 bg-teal-50 text-teal-700 border border-teal-200 rounded-full text-[10px] font-bold uppercase tracking-wider status-badge">
                                                 {{ __('messages.completed') }}
                                             </span>
                                         @elseif($booking->status === 'rejected')
-                                            <span class="px-2 py-0.5 bg-rose-50 text-rose-700 border border-rose-200 rounded-full text-[10px] font-bold uppercase tracking-wider">
+                                            <span class="px-2 py-0.5 bg-rose-50 text-rose-700 border border-rose-200 rounded-full text-[10px] font-bold uppercase tracking-wider status-badge">
                                                 {{ __('messages.rejected') }}
                                             </span>
                                         @else
-                                            <span class="px-2 py-0.5 bg-slate-50 text-slate-700 border border-slate-200 rounded-full text-[10px] font-bold uppercase tracking-wider">
+                                            <span class="px-2 py-0.5 bg-slate-50 text-slate-700 border border-slate-200 rounded-full text-[10px] font-bold uppercase tracking-wider status-badge">
                                                 {{ __('messages.cancelled') }}
                                             </span>
                                         @endif

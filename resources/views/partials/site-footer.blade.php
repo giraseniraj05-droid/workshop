@@ -9,11 +9,11 @@
         </div>
 
         <div class="flex flex-wrap items-center justify-center gap-x-4 gap-y-2 text-slate-400 text-xs my-2">
-            <a href="{{ route('privacy.policy') }}" class="hover:text-white transition">{{ __('Privacy Policy') }}</a>
+            <a href="{{ route('privacy.policy') }}" class="hover:text-white transition link-underline">{{ __('Privacy Policy') }}</a>
             <span class="text-slate-600">|</span>
-            <a href="{{ route('terms.service') }}" class="hover:text-white transition">{{ __('Terms of Service') }}</a>
+            <a href="{{ route('terms.service') }}" class="hover:text-white transition link-underline">{{ __('Terms of Service') }}</a>
             <span class="text-slate-600">|</span>
-            <a href="{{ route('cookie.settings') }}" class="hover:text-white transition">{{ __('Cookie Settings') }}</a>
+            <a href="{{ route('cookie.settings') }}" class="hover:text-white transition link-underline">{{ __('Cookie Settings') }}</a>
         </div>
 
         <p class="page-footer-copy">

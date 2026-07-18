@@ -317,6 +317,16 @@
                 font-weight: 800;
                 cursor: pointer;
                 box-shadow: 0 16px 28px rgba(30, 64, 175, 0.18);
+                transition: transform 150ms cubic-bezier(0.4, 0, 0.2, 1), box-shadow 150ms cubic-bezier(0.4, 0, 0.2, 1);
+            }
+
+            .submit-button:hover {
+                transform: translateY(-1px);
+                box-shadow: 0 20px 32px rgba(30, 64, 175, 0.25);
+            }
+
+            .submit-button:active {
+                transform: translateY(0) scale(0.97);
             }
 
             .footer-line {

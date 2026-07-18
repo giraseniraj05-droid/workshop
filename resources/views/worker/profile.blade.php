@@ -4,7 +4,7 @@
             <span class="flex items-center gap-2">
                 <i class="fa-solid fa-user-cog text-blue-600"></i> {{ __('Edit Worker Profile') }}
             </span>
-            <a href="{{ route('worker.dashboard') }}" class="px-4 py-2 text-sm bg-slate-100 text-slate-700 hover:bg-slate-200 font-bold rounded-lg transition">
+            <a href="{{ route('worker.dashboard') }}" class="px-4 py-2 text-sm bg-slate-100 text-slate-700 hover:bg-slate-200 font-bold rounded-lg transition btn-press">
                 <i class="fa-solid fa-arrow-left mr-1"></i> {{ __('messages.back_to_dashboard') }}
             </a>
         </h2>
@@ -24,7 +24,7 @@
             <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
                 
                 <!-- Left: Profile Edit Form -->
-                <div class="lg:col-span-2 bg-white rounded-3xl p-8 border border-slate-100 shadow-sm">
+                <div class="lg:col-span-2 bg-white rounded-3xl p-8 border border-slate-100 shadow-sm hover-card-lift">
                     <h3 class="text-xl font-bold text-slate-900 mb-6 border-b border-slate-50 pb-4">
                         <i class="fa-solid fa-address-card text-blue-600 mr-1"></i> {{ __('Profile Details') }}
                     </h3>
@@ -68,7 +68,7 @@
                             <div>
                                 <label for="phone" class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-2">{{ __('Phone Number') }}</label>
                                 <input type="text" name="phone" id="phone" value="{{ old('phone', $profile->phone) }}" required
-                                       class="w-full rounded-xl border-slate-200 focus:border-blue-500 focus:ring focus:ring-blue-200 text-slate-800 font-medium">
+                                       class="w-full rounded-xl border-slate-200 focus:border-blue-500 focus:ring focus:ring-blue-200 text-slate-800 font-medium input-focus-glow">
                                 @error('phone')
                                     <span class="text-xs text-red-600 mt-1 block">{{ $message }}</span>
                                 @enderror
@@ -78,7 +78,7 @@
                             <div>
                                 <label for="skills" class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-2">{{ __('Skills (Comma-separated)') }}</label>
                                 <input type="text" name="skills" id="skills" value="{{ old('skills', $skillsString) }}" required placeholder="{{ __('E.g. Tiling, Grouting, Marble repair') }}"
-                                       class="w-full rounded-xl border-slate-200 focus:border-blue-500 focus:ring focus:ring-blue-200 text-slate-800 font-medium">
+                                       class="w-full rounded-xl border-slate-200 focus:border-blue-500 focus:ring focus:ring-blue-200 text-slate-800 font-medium input-focus-glow">
                                 @error('skills')
                                     <span class="text-xs text-red-600 mt-1 block">{{ $message }}</span>
                                 @enderror

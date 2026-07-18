@@ -96,7 +96,7 @@
 
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                     @forelse($workers as $worker)
-                        <div class="bg-white rounded-2xl p-6 border border-slate-100 shadow-sm flex flex-col hover:-translate-y-1.5 hover:shadow-xl transition-all duration-300 card-border-emerald card-sheen glow-shadow-emerald">
+                        <div class="bg-white rounded-2xl p-6 border border-slate-100 shadow-sm flex flex-col transition-all duration-300 card-border-emerald card-sheen glow-shadow-emerald hover-card-lift scroll-reveal" style="transition-delay: {{ $loop->index * 70 }}ms;">
                             <!-- Photo and Name -->
                             <div class="flex items-center gap-4 mb-4">
                                 <div class="h-16 w-16 rounded-full bg-teal-50 border border-teal-100 flex items-center justify-center text-teal-600 font-bold overflow-hidden shadow-inner flex-shrink-0">
@@ -177,7 +177,7 @@
                     </h2>
 
                     @forelse($reviews as $review)
-                        <div class="bg-white rounded-2xl p-6 border border-slate-100 shadow-sm mb-6 last:mb-0 hover:-translate-y-1.5 hover:shadow-xl transition-all duration-300 card-border-amber card-sheen glow-shadow-amber animate-fade-in-up" style="animation-delay: {{ $loop->index * 60 }}ms;">
+                        <div class="bg-white rounded-2xl p-6 border border-slate-100 shadow-sm mb-6 last:mb-0 transition-all duration-300 card-border-amber card-sheen glow-shadow-amber hover-card-lift scroll-reveal" style="transition-delay: {{ $loop->index * 70 }}ms;">
                             <div class="flex items-center justify-between mb-4">
                                 <div class="flex items-center gap-3">
                                     <div class="h-10 w-10 rounded-full bg-teal-50 border border-teal-100 flex items-center justify-center text-teal-600 font-bold overflow-hidden shadow-inner flex-shrink-0">
@@ -254,7 +254,7 @@
                                     <div>
                                         <label for="booking_date" class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-2">{{ __('messages.pref_date') }}</label>
                                         <input type="text" name="booking_date" id="booking_date" required placeholder="YYYY-MM-DD"
-                                               class="w-full rounded-xl border-slate-200 focus:border-teal-500 focus:ring focus:ring-teal-200 text-slate-800 font-medium">
+                                               class="w-full rounded-xl border-slate-200 focus:border-teal-500 focus:ring focus:ring-teal-200 text-slate-800 font-medium input-focus-glow">
                                         @error('booking_date')
                                             <span class="text-xs text-red-600 mt-1 block">{{ $message }}</span>
                                         @enderror
@@ -301,7 +301,7 @@
                                                   class="w-full rounded-xl border-slate-200 focus:border-teal-500 focus:ring focus:ring-teal-200 text-slate-800 text-sm font-medium"></textarea>
                                     </div>
 
-                                    <button type="submit" class="w-full py-3.5 bg-gradient-to-r from-teal-500 to-blue-600 hover:from-teal-600 hover:to-blue-700 active:scale-[0.98] text-white font-bold rounded-xl transition duration-200 shadow-md">
+                                    <button type="submit" class="w-full py-3.5 bg-gradient-to-r from-teal-500 to-blue-600 hover:from-teal-600 hover:to-blue-700 text-white font-bold rounded-xl transition duration-200 shadow-md btn-press">
                                         {{ __('messages.request_booking') }}
                                     </button>
 
@@ -376,7 +376,7 @@
                                     @enderror
                                 </div>
 
-                                <button type="submit" class="w-full py-3.5 bg-slate-800 hover:bg-slate-900 active:scale-[0.98] text-white font-bold rounded-xl transition duration-200 shadow-md">
+                                <button type="submit" class="w-full py-3.5 bg-slate-800 hover:bg-slate-900 text-white font-bold rounded-xl transition duration-200 shadow-md btn-press">
                                     {{ __('messages.submit_enquiry') }}
                                 </button>
                             </form>
