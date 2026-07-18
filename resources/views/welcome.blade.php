@@ -40,8 +40,8 @@
         <div class="absolute -top-16 -start-16 w-80 h-80 bg-teal-300/20 rounded-full blur-3xl animate-blob-slow pointer-events-none"></div>
         <div class="absolute -bottom-16 -end-16 w-80 h-80 bg-indigo-400/25 rounded-full blur-3xl animate-blob-delay pointer-events-none"></div>
         <div class="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(255,255,255,0.12),transparent_40%)]"></div>
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
-            <span class="px-3 py-1 bg-white/20 backdrop-blur-md rounded-full text-xs font-bold uppercase tracking-wider mb-4 inline-block">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10 animate-hero-entrance">
+            <span class="px-3 py-1 bg-white/20 backdrop-blur-md rounded-full text-xs font-bold uppercase tracking-wider mb-4 inline-block animate-float-subtle">
                 {{ __('messages.hero_badge') }}
             </span>
             <h1 class="text-4xl md:text-6xl font-black tracking-tight mb-6 max-w-4xl mx-auto leading-tight">
@@ -51,7 +51,7 @@
                 {{ __('messages.hero_subtitle') }}
             </p>
             <div class="flex flex-wrap justify-center gap-4">
-                <a href="#services-list" class="px-8 py-4 bg-white text-blue-700 font-bold rounded-xl shadow-lg hover:shadow-xl btn-press">
+                <a href="#services-list" class="px-8 py-4 bg-white text-blue-700 font-bold rounded-xl shadow-lg hover:shadow-xl btn-press btn-premium">
                     {{ __('messages.browse_services_btn') }}
                 </a>
             </div>
@@ -80,7 +80,7 @@
                     3 => 'card-border-sunset',
                 };
             @endphp
-            <div class="bg-white rounded-2xl shadow-sm border border-slate-100 overflow-hidden transition-all duration-300 flex flex-col group {{ $borderPreset }} card-sheen glow-shadow-primary hover-card-lift scroll-reveal" style="transition-delay: {{ $loop->index * 70 }}ms;">
+            <div class="bg-white rounded-2xl shadow-sm border border-slate-100 overflow-hidden transition-all duration-300 flex flex-col group {{ $borderPreset }} card-sheen glow-shadow-primary hover-card-lift card-premium scroll-reveal" style="transition-delay: {{ $loop->index * 70 }}ms;">
 
                 <!-- Hero Image -->
                 <div class="h-48 overflow-hidden bg-slate-100 relative">

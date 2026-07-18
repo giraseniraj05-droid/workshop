@@ -282,8 +282,8 @@
             }
 
             .control:focus {
-                border-color: rgba(30, 64, 175, 0.55);
-                box-shadow: 0 0 0 4px rgba(30, 64, 175, 0.12);
+                border-color: rgba(30, 64, 175, 0.65);
+                box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.18), 0 4px 12px -2px rgba(59, 130, 246, 0.1);
             }
 
             .password-wrap {
@@ -334,12 +334,30 @@
                 font-weight: 800;
                 cursor: pointer;
                 box-shadow: 0 16px 28px rgba(30, 64, 175, 0.18);
-                transition: transform 150ms cubic-bezier(0.4, 0, 0.2, 1), box-shadow 150ms cubic-bezier(0.4, 0, 0.2, 1);
+                position: relative;
+                overflow: hidden;
+                transition: transform 250ms cubic-bezier(0.16, 1, 0.3, 1), box-shadow 250ms cubic-bezier(0.16, 1, 0.3, 1);
+            }
+
+            .submit-button::after {
+                content: '';
+                position: absolute;
+                top: 0;
+                left: -100%;
+                width: 100%;
+                height: 100%;
+                background: linear-gradient(120deg, transparent 0%, rgba(255, 255, 255, 0.28) 50%, transparent 100%);
+                transition: transform 650ms cubic-bezier(0.16, 1, 0.3, 1);
+                pointer-events: none;
             }
 
             .submit-button:hover {
-                transform: translateY(-1px);
-                box-shadow: 0 20px 32px rgba(30, 64, 175, 0.25);
+                transform: translateY(-2px) scale(1.04);
+                box-shadow: 0 20px 32px rgba(30, 64, 175, 0.3);
+            }
+
+            .submit-button:hover::after {
+                transform: translateX(200%);
             }
 
             .submit-button:active {
@@ -409,7 +427,7 @@
             @include('partials.site-header', ['page' => 'login'])
 
             <main class="login-main">
-                <div class="login-grid">
+                <div class="login-grid animate-page-entrance">
                     <section class="hero-panel" aria-label="{{ __('messages.hero_title') }}">
                         <span class="hero-badge">
                             <i class="fa-solid fa-bolt"></i>
