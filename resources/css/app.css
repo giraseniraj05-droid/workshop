@@ -289,12 +289,13 @@ button:active, .btn-hover-effect:active, .btn-active-press:active {
 .hover-card-lift,
 .card-premium,
 .card-color-transform {
-    transition: transform 750ms cubic-bezier(0.16, 1, 0.3, 1),
-                background-color 750ms cubic-bezier(0.16, 1, 0.3, 1),
-                box-shadow 750ms cubic-bezier(0.16, 1, 0.3, 1),
-                border-color 750ms cubic-bezier(0.16, 1, 0.3, 1);
+    transition: transform 800ms cubic-bezier(0.16, 1, 0.3, 1),
+                background-color 800ms cubic-bezier(0.16, 1, 0.3, 1),
+                box-shadow 800ms cubic-bezier(0.16, 1, 0.3, 1),
+                border-color 800ms cubic-bezier(0.16, 1, 0.3, 1);
     will-change: transform, background-color, box-shadow;
-    transform: scale3d(1, 1, 1) translate3d(0, 0, 0);
+    transform: perspective(1000px) scale3d(1, 1, 1) translate3d(0, 0, 0);
+    transform-origin: center center;
     backface-visibility: hidden;
     border-radius: 28px !important;
     overflow: hidden;
@@ -305,13 +306,13 @@ button:active, .btn-hover-effect:active, .btn-active-press:active {
 .card-premium:hover,
 .card-color-transform:hover {
     transition-delay: 0ms !important;
-    transform: scale3d(1.035, 1.035, 1) translate3d(0, -5px, 0);
+    transform: perspective(1000px) scale3d(1.018, 1.018, 1) translate3d(0, -3px, 0);
     background-color: #b45309 !important;
     border-color: #d97706 !important;
-    box-shadow: 0 25px 50px -12px rgba(180, 83, 9, 0.38), 0 0 0 1px rgba(217, 119, 6, 0.35);
+    box-shadow: 0 22px 45px -12px rgba(180, 83, 9, 0.35), 0 0 0 1px rgba(217, 119, 6, 0.3);
 }
 
-/* Synchronized 750ms Child Contrast Transition (No White Flash) */
+/* Synchronized 800ms Child Contrast Transition (No White Flash) */
 .smooth-card-motion h1, .smooth-card-motion h2, .smooth-card-motion h3,
 .smooth-card-motion h4, .smooth-card-motion h5, .smooth-card-motion h6,
 .smooth-card-motion p, .smooth-card-motion span, .smooth-card-motion i,
@@ -320,7 +321,7 @@ button:active, .btn-hover-effect:active, .btn-active-press:active {
 .card-color-transform h4, .card-color-transform h5, .card-color-transform h6,
 .card-color-transform p, .card-color-transform span, .card-color-transform i,
 .card-color-transform label {
-    transition: color 750ms cubic-bezier(0.16, 1, 0.3, 1);
+    transition: color 800ms cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .smooth-card-motion:hover h1, .smooth-card-motion:hover h2, .smooth-card-motion:hover h3,
@@ -337,20 +338,20 @@ button:active, .btn-hover-effect:active, .btn-active-press:active {
 /* Service Card Image & Icon Badge Gradient Transition */
 .smooth-card-motion img,
 .card-color-transform img {
-    transition: transform 750ms cubic-bezier(0.16, 1, 0.3, 1);
+    transition: transform 800ms cubic-bezier(0.16, 1, 0.3, 1);
     will-change: transform;
 }
 .smooth-card-motion:hover img,
 .card-color-transform:hover img {
-    transform: scale3d(1.06, 1.06, 1);
+    transform: scale3d(1.04, 1.04, 1);
 }
 
 .service-icon-badge {
-    transition: transform 750ms cubic-bezier(0.16, 1, 0.3, 1),
-                background 750ms cubic-bezier(0.16, 1, 0.3, 1),
-                color 750ms cubic-bezier(0.16, 1, 0.3, 1),
-                box-shadow 750ms cubic-bezier(0.16, 1, 0.3, 1),
-                border-color 750ms cubic-bezier(0.16, 1, 0.3, 1);
+    transition: transform 800ms cubic-bezier(0.16, 1, 0.3, 1),
+                background 800ms cubic-bezier(0.16, 1, 0.3, 1),
+                color 800ms cubic-bezier(0.16, 1, 0.3, 1),
+                box-shadow 800ms cubic-bezier(0.16, 1, 0.3, 1),
+                border-color 800ms cubic-bezier(0.16, 1, 0.3, 1);
     will-change: transform, background, color;
 }
 .smooth-card-motion:hover .service-icon-badge,
@@ -358,7 +359,7 @@ button:active, .btn-hover-effect:active, .btn-active-press:active {
     background: linear-gradient(135deg, #f59e0b 0%, #ea580c 100%) !important;
     color: #ffffff !important;
     box-shadow: 0 8px 22px rgba(0, 0, 0, 0.28) !important;
-    transform: scale3d(1.14, 1.14, 1) !important;
+    transform: scale3d(1.1, 1.1, 1) !important;
     border-color: rgba(255, 255, 255, 0.4) !important;
 }
 .smooth-card-motion:hover .service-icon-badge i,

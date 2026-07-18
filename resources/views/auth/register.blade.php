@@ -71,12 +71,12 @@
                 border-radius: 28px;
                 overflow: hidden;
                 box-shadow: 0 24px 60px rgba(15, 23, 42, 0.12);
-                transition: transform 750ms cubic-bezier(0.16, 1, 0.3, 1),
-                            box-shadow 750ms cubic-bezier(0.16, 1, 0.3, 1),
-                            background 750ms cubic-bezier(0.16, 1, 0.3, 1),
-                            border-color 750ms cubic-bezier(0.16, 1, 0.3, 1);
+                transition: transform 800ms cubic-bezier(0.16, 1, 0.3, 1),
+                            box-shadow 800ms cubic-bezier(0.16, 1, 0.3, 1),
+                            background 800ms cubic-bezier(0.16, 1, 0.3, 1),
+                            border-color 800ms cubic-bezier(0.16, 1, 0.3, 1);
                 will-change: transform, box-shadow, background;
-                transform: scale3d(1, 1, 1) translate3d(0, 0, 0);
+                transform: perspective(1000px) scale3d(1, 1, 1) translate3d(0, 0, 0);
                 -webkit-font-smoothing: antialiased;
                 text-rendering: optimizeLegibility;
             }
@@ -84,7 +84,7 @@
             .hero-panel:hover,
             .form-panel:hover {
                 transition-delay: 0ms !important;
-                transform: scale3d(1.02, 1.02, 1) translate3d(0, -4px, 0);
+                transform: perspective(1000px) scale3d(1.015, 1.015, 1) translate3d(0, -3px, 0);
                 box-shadow: 0 32px 75px -12px rgba(15, 23, 42, 0.35);
             }
 
@@ -93,7 +93,7 @@
                 padding: 56px;
                 color: white;
                 background: linear-gradient(135deg, #1d4ed8 0%, #ea580c 52%, #4338ca 100%);
-                transition: background 750ms cubic-bezier(0.16, 1, 0.3, 1);
+                transition: background 800ms cubic-bezier(0.16, 1, 0.3, 1);
             }
 
             .hero-panel:hover {
@@ -229,7 +229,7 @@
                 background: rgba(255, 255, 255, 0.92);
                 backdrop-filter: blur(16px);
                 border: 1px solid var(--register-border);
-                transition: background 750ms cubic-bezier(0.16, 1, 0.3, 1);
+                transition: background 800ms cubic-bezier(0.16, 1, 0.3, 1);
             }
 
             .form-panel:hover {
@@ -246,9 +246,9 @@
             .footer-text,
             .footer-link,
             .control {
-                transition: color 750ms cubic-bezier(0.16, 1, 0.3, 1),
-                            background-color 750ms cubic-bezier(0.16, 1, 0.3, 1),
-                            border-color 750ms cubic-bezier(0.16, 1, 0.3, 1);
+                transition: color 800ms cubic-bezier(0.16, 1, 0.3, 1),
+                            background-color 800ms cubic-bezier(0.16, 1, 0.3, 1),
+                            border-color 800ms cubic-bezier(0.16, 1, 0.3, 1);
             }
 
             .form-panel:hover .form-header {
