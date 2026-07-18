@@ -340,6 +340,8 @@ button:active,
         border-color .18s ease,
         box-shadow .28s cubic-bezier(.22, 1, .36, 1);
     border-radius: 28px;
+    overflow: hidden;
+
 
 
     transform: translate3d(0, 0, 0);
@@ -417,17 +419,16 @@ button:active,
 /* Service Card Image & Icon Badge Gradient Transition */
 .smooth-card-motion img,
 .card-color-transform img {
-    transition: color .22s ease;
+
     will-change: transform;
     border-radius: inherit;
+    transition: color .22s ease;
 
 }
 
 .smooth-card-motion:hover img,
 .card-color-transform:hover img {
-    transform: scale3d(1.04, 1.04, 1);
-    border-radius: 28px;
-    overflow: hidden;
+    transform: scale(1.02);
 
 
 }
