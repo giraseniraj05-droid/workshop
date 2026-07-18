@@ -419,11 +419,15 @@ button:active,
 .card-color-transform img {
     transition: color .22s ease;
     will-change: transform;
+    border-radius: 28px;
+
 }
 
 .smooth-card-motion:hover img,
 .card-color-transform:hover img {
     transform: scale3d(1.04, 1.04, 1);
+    border-radius: 28px;
+
 }
 
 .service-icon-badge {
