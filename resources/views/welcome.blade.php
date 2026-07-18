@@ -80,7 +80,7 @@
                     3 => 'card-border-sunset',
                 };
             @endphp
-            <div class="bg-white rounded-[28px] shadow-sm border border-slate-100 flex flex-col group {{ $borderPreset }} smooth-card-motion running-border-active">
+            <div class="bg-white rounded-3xl shadow-sm border border-slate-100 flex flex-col group {{ $borderPreset }} smooth-card-motion running-border-active">
 
                 <!-- Hero Image -->
                 <div class="h-48 overflow-hidden bg-slate-100 relative">
